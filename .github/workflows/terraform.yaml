@@ -1,0 +1,43 @@
+name: Terraform Test
+
+on:
+  push:
+    paths:
+      - 'terraform/**'
+  pull_request:
+    paths:
+      - 'terraform/**'
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.6.6
+
+    - name: Create kubeconfig from secret
+      run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG_FILE }}" > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
+
+    - name: Terraform Init
+      run: terraform -chdir=terraform init
+
+    - name: Terraform Validate
+      run: terraform -chdir=terraform validate
+
+    - name: Terraform Plan
+      run: terraform -chdir=terraform plan
+
+    # Optional: auto-apply on push to main branch
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main'
+      run: terraform -chdir=terraform apply -auto-approve
+
