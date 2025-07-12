@@ -47,3 +47,4 @@ resource "kubernetes_manifest" "nginx_deployment" {
   manifest = yamldecode(file("${path.module}/nginx-deployment.yaml"))
 }
 
+# trigger action
