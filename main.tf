@@ -48,3 +48,4 @@ resource "kubernetes_manifest" "nginx_deployment" {
 }
 
 # trigger action
+# trigger action
