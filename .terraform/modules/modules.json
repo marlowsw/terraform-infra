@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"argocd","Source":"./terraform-modules/argocd","Dir":"terraform-modules/argocd"},{"Key":"infra","Source":"./terraform-modules/infra","Dir":"terraform-modules/infra"}]}
