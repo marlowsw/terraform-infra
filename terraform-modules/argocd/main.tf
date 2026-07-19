@@ -5,7 +5,7 @@ resource "kubernetes_namespace" "argocd" {
 }
 
 resource "helm_release" "argocd" {
-  provider   = helm  # <-- add this line
+  provider   = helm # <-- add this line
   name       = "argocd"
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
@@ -16,7 +16,7 @@ resource "helm_release" "argocd" {
     yamlencode({
       server = {
         service = {
-          type = "NodePort" # or "ClusterIP" if you prefer
+          type     = "NodePort" # or "ClusterIP" if you prefer
           nodePort = 30080
         }
       }
