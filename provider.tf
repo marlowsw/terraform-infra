@@ -12,12 +12,12 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_path = "/home/smarz/talos/kubeconfig"
+  config_path = "/home/smarz/terraform/terraform-infra/local.yaml"
 }
 
 provider "helm" {
   kubernetes = {
-    config_path = "/home/smarz/talos/kubeconfig"
+    config_path = "/home/smarz/terraform/terraform-infra/local.yaml"
   }
 }
 
