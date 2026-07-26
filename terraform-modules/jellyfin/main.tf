@@ -121,6 +121,10 @@ resource "kubernetes_deployment_v1" "jellyfin" {
       }
 
       spec {
+        node_selector = {
+          "kubernetes.io/hostname" = var.gpu_node
+        }
+
         security_context {
           fs_group = 1000
         }
@@ -157,13 +161,15 @@ resource "kubernetes_deployment_v1" "jellyfin" {
 
           resources {
             requests = {
-              cpu    = "250m"
-              memory = "512Mi"
+              cpu              = "250m"
+              memory           = "512Mi"
+              "nvidia.com/gpu" = "1"
             }
 
             limits = {
-              cpu    = "4"
-              memory = "4Gi"
+              cpu              = "4"
+              memory           = "16Gi"
+              "nvidia.com/gpu" = "1"
             }
           }
         }

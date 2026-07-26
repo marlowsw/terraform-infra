@@ -21,3 +21,9 @@ variable "storage_size" {
   type        = string
   default     = "1Ti"
 }
+
+variable "gpu_node" {
+  description = "Kubernetes node where Jellyfin should run"
+  type        = string
+  default     = "rancher-gpu1"
+}
