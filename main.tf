@@ -30,6 +30,14 @@ module "jellyfin" {
   }
 }
 
+module "goldpinger" {
+  source = "./terraform-modules/goldpinger"
+
+  namespace = "goldpinger"
+
+  replicas = 3
+}
+
 #module "ollama" {
 #  source = "./terraform-modules/ollama"
 #
