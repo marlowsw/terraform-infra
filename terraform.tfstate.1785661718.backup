@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.14.8",
-  "serial": 365,
+  "serial": 364,
   "lineage": "acccfb74-40b4-1c27-fc04-f8886d2360a2",
   "outputs": {
     "argocd_helm_name": {
@@ -18319,6 +18319,228 @@
           "dependencies": [
             "module.kubevirt_manager.kubernetes_namespace.kubevirt_manager"
           ]
+        },
+        {
+          "index_key": "Service-kubevirt-manager",
+          "schema_version": 1,
+          "attributes": {
+            "computed_fields": null,
+            "field_manager": [],
+            "manifest": {
+              "value": null,
+              "type": [
+                "object",
+                {}
+              ]
+            },
+            "object": {
+              "value": {
+                "apiVersion": "v1",
+                "kind": "Service",
+                "metadata": {
+                  "annotations": null,
+                  "creationTimestamp": null,
+                  "deletionGracePeriodSeconds": null,
+                  "deletionTimestamp": null,
+                  "finalizers": null,
+                  "generateName": null,
+                  "generation": null,
+                  "labels": {
+                    "app": "kubevirt-manager",
+                    "kubevirt-manager.io/version": "nightly"
+                  },
+                  "managedFields": null,
+                  "name": "kubevirt-manager",
+                  "namespace": "kubevirt-manager",
+                  "ownerReferences": null,
+                  "resourceVersion": null,
+                  "selfLink": null,
+                  "uid": null
+                },
+                "spec": {
+                  "allocateLoadBalancerNodePorts": null,
+                  "clusterIP": "10.43.197.31",
+                  "clusterIPs": [
+                    "10.43.197.31"
+                  ],
+                  "externalIPs": null,
+                  "externalName": null,
+                  "externalTrafficPolicy": null,
+                  "healthCheckNodePort": null,
+                  "internalTrafficPolicy": "Cluster",
+                  "ipFamilies": [
+                    "IPv4"
+                  ],
+                  "ipFamilyPolicy": "SingleStack",
+                  "loadBalancerClass": null,
+                  "loadBalancerIP": null,
+                  "loadBalancerSourceRanges": null,
+                  "ports": [
+                    {
+                      "appProtocol": null,
+                      "name": null,
+                      "nodePort": null,
+                      "port": 8080,
+                      "protocol": "TCP",
+                      "targetPort": "8080"
+                    }
+                  ],
+                  "publishNotReadyAddresses": null,
+                  "selector": {
+                    "app": "kubevirt-manager"
+                  },
+                  "sessionAffinity": "None",
+                  "sessionAffinityConfig": {
+                    "clientIP": {
+                      "timeoutSeconds": null
+                    }
+                  },
+                  "trafficDistribution": null,
+                  "type": "ClusterIP"
+                }
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "annotations": [
+                        "map",
+                        "string"
+                      ],
+                      "creationTimestamp": "string",
+                      "deletionGracePeriodSeconds": "number",
+                      "deletionTimestamp": "string",
+                      "finalizers": [
+                        "list",
+                        "string"
+                      ],
+                      "generateName": "string",
+                      "generation": "number",
+                      "labels": [
+                        "map",
+                        "string"
+                      ],
+                      "managedFields": [
+                        "tuple",
+                        [
+                          [
+                            "object",
+                            {
+                              "apiVersion": "string",
+                              "fieldsType": "string",
+                              "fieldsV1": "dynamic",
+                              "manager": "string",
+                              "operation": "string",
+                              "subresource": "string",
+                              "time": "string"
+                            }
+                          ]
+                        ]
+                      ],
+                      "name": "string",
+                      "namespace": "string",
+                      "ownerReferences": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "apiVersion": "string",
+                            "blockOwnerDeletion": "bool",
+                            "controller": "bool",
+                            "kind": "string",
+                            "name": "string",
+                            "uid": "string"
+                          }
+                        ]
+                      ],
+                      "resourceVersion": "string",
+                      "selfLink": "string",
+                      "uid": "string"
+                    }
+                  ],
+                  "spec": [
+                    "object",
+                    {
+                      "allocateLoadBalancerNodePorts": "bool",
+                      "clusterIP": "string",
+                      "clusterIPs": [
+                        "list",
+                        "string"
+                      ],
+                      "externalIPs": [
+                        "list",
+                        "string"
+                      ],
+                      "externalName": "string",
+                      "externalTrafficPolicy": "string",
+                      "healthCheckNodePort": "number",
+                      "internalTrafficPolicy": "string",
+                      "ipFamilies": [
+                        "list",
+                        "string"
+                      ],
+                      "ipFamilyPolicy": "string",
+                      "loadBalancerClass": "string",
+                      "loadBalancerIP": "string",
+                      "loadBalancerSourceRanges": [
+                        "list",
+                        "string"
+                      ],
+                      "ports": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "appProtocol": "string",
+                            "name": "string",
+                            "nodePort": "number",
+                            "port": "number",
+                            "protocol": "string",
+                            "targetPort": "string"
+                          }
+                        ]
+                      ],
+                      "publishNotReadyAddresses": "bool",
+                      "selector": [
+                        "map",
+                        "string"
+                      ],
+                      "sessionAffinity": "string",
+                      "sessionAffinityConfig": [
+                        "object",
+                        {
+                          "clientIP": [
+                            "object",
+                            {
+                              "timeoutSeconds": "number"
+                            }
+                          ]
+                        }
+                      ],
+                      "trafficDistribution": "string",
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "timeouts": [],
+            "wait": [],
+            "wait_for": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Service",
+            "name": "kubevirt-manager",
+            "namespace": "kubevirt-manager"
+          },
+          "private": "gapJc0ltcG9ydGVkww=="
         },
         {
           "index_key": "ServiceAccount-kubevirt-manager",

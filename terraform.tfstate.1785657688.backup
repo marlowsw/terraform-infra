@@ -1,0 +1,2808 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.8",
+  "serial": 263,
+  "lineage": "acccfb74-40b4-1c27-fc04-f8886d2360a2",
+  "outputs": {
+    "argocd_helm_name": {
+      "value": "argocd",
+      "type": "string"
+    },
+    "argocd_namespace": {
+      "value": "argocd",
+      "type": "string"
+    },
+    "namespace_name": {
+      "value": "terraform-demo",
+      "type": "string"
+    },
+    "nginx_deployment_name": {
+      "value": "nginx-deployment",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "module": "module.argocd",
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "argocd",
+      "provider": "provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "atomic": false,
+            "chart": "argo-cd",
+            "cleanup_on_fail": false,
+            "create_namespace": false,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "argocd",
+            "keyring": null,
+            "lint": false,
+            "manifest": null,
+            "max_history": 0,
+            "metadata": {
+              "app_version": "v3.1.1",
+              "chart": "argo-cd",
+              "first_deployed": 1784436865,
+              "last_deployed": 1784436865,
+              "name": "argocd",
+              "namespace": "argocd",
+              "notes": "\nIn order to access the server UI you have the following options:\n\n1. kubectl port-forward service/argocd-server -n argocd 8080:443\n\n    and then open the browser on http://localhost:8080 and accept the certificate\n\n2. enable ingress in the values file `server.ingress.enabled` and either\n      - Add the annotation for ssl passthrough: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-1-ssl-passthrough\n      - Set the `configs.params.\"server.insecure\"` in the values file and terminate SSL at your ingress: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-2-multiple-ingress-objects-and-hosts\n\n\nAfter reaching the UI the first time you can login with username: admin and the random password generated during the installation. You can find the password by running:\n\nkubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=\"{.data.password}\" | base64 -d\n\n(You should delete the initial secret afterwards as suggested by the Getting Started Guide: https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)\n",
+              "revision": 1,
+              "values": "{\"server\":{\"service\":{\"nodePort\":30080,\"type\":\"NodePort\"}}}",
+              "version": "8.3.1"
+            },
+            "name": "argocd",
+            "namespace": "argocd",
+            "pass_credentials": false,
+            "postrender": null,
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": "https://argoproj.github.io/argo-helm",
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": null,
+            "set_list": null,
+            "set_sensitive": null,
+            "set_wo": null,
+            "set_wo_revision": null,
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 300,
+            "values": [
+              "\"server\":\n  \"service\":\n    \"nodePort\": 30080\n    \"type\": \"NodePort\"\n"
+            ],
+            "verify": false,
+            "version": "8.3.1",
+            "wait": true,
+            "wait_for_jobs": false
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "repository_password"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "identity": {
+            "namespace": "argocd",
+            "release_name": "argocd"
+          },
+          "dependencies": [
+            "module.argocd.kubernetes_namespace.argocd"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.argocd",
+      "mode": "managed",
+      "type": "kubernetes_namespace",
+      "name": "argocd",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "argocd",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "argocd",
+                "resource_version": "12238593",
+                "uid": "e58c2125-f890-4b2e-9264-07e66a70c2a0"
+              }
+            ],
+            "timeouts": null,
+            "wait_for_default_service_account": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Namespace",
+            "name": "argocd"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.goldpinger",
+      "mode": "managed",
+      "type": "kubernetes_cluster_role_binding_v1",
+      "name": "goldpinger",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "goldpinger",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "goldpinger",
+                "resource_version": "12083819",
+                "uid": "37e6cf0f-c6b4-4602-8f6e-88a5bc7c5961"
+              }
+            ],
+            "role_ref": [
+              {
+                "api_group": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "goldpinger"
+              }
+            ],
+            "subject": [
+              {
+                "api_group": "",
+                "kind": "ServiceAccount",
+                "name": "goldpinger",
+                "namespace": "goldpinger"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "rbac.authorization.k8s.io/v1",
+            "kind": "ClusterRoleBinding",
+            "name": "goldpinger"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.goldpinger.kubernetes_cluster_role_v1.goldpinger",
+            "module.goldpinger.kubernetes_namespace_v1.goldpinger",
+            "module.goldpinger.kubernetes_service_account_v1.goldpinger"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.goldpinger",
+      "mode": "managed",
+      "type": "kubernetes_cluster_role_v1",
+      "name": "goldpinger",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "aggregation_rule": [],
+            "id": "goldpinger",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "goldpinger",
+                "resource_version": "12083801",
+                "uid": "feb6ca24-f50f-4c71-a2ea-d3b94e8be92d"
+              }
+            ],
+            "rule": [
+              {
+                "api_groups": [
+                  ""
+                ],
+                "non_resource_urls": [],
+                "resource_names": [],
+                "resources": [
+                  "pods",
+                  "nodes",
+                  "services",
+                  "endpoints"
+                ],
+                "verbs": [
+                  "get",
+                  "list",
+                  "watch"
+                ]
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "rbac.authorization.k8s.io/v1",
+            "kind": "ClusterRole",
+            "name": "goldpinger"
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.goldpinger",
+      "mode": "managed",
+      "type": "kubernetes_daemon_set_v1",
+      "name": "goldpinger",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "goldpinger/goldpinger",
+            "metadata": [
+              {
+                "annotations": {
+                  "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":31078,\"protocol\":\"TCP\",\"serviceName\":\"goldpinger:goldpinger\",\"allNodes\":true}]"
+                },
+                "generate_name": "",
+                "generation": 1,
+                "labels": {
+                  "app": "goldpinger"
+                },
+                "name": "goldpinger",
+                "namespace": "goldpinger",
+                "resource_version": "12238618",
+                "uid": "3fdee5e3-fbc1-46a9-a8b3-e068ae015f34"
+              }
+            ],
+            "spec": [
+              {
+                "min_ready_seconds": 0,
+                "revision_history_limit": 10,
+                "selector": [
+                  {
+                    "match_expressions": [],
+                    "match_labels": {
+                      "app": "goldpinger"
+                    }
+                  }
+                ],
+                "strategy": [
+                  {
+                    "rolling_update": [
+                      {
+                        "max_surge": "0",
+                        "max_unavailable": "1"
+                      }
+                    ],
+                    "type": "RollingUpdate"
+                  }
+                ],
+                "template": [
+                  {
+                    "metadata": [
+                      {
+                        "annotations": {},
+                        "generate_name": "",
+                        "generation": 0,
+                        "labels": {
+                          "app": "goldpinger"
+                        },
+                        "name": "",
+                        "namespace": "",
+                        "resource_version": "",
+                        "uid": ""
+                      }
+                    ],
+                    "spec": [
+                      {
+                        "active_deadline_seconds": 0,
+                        "affinity": [],
+                        "automount_service_account_token": true,
+                        "container": [
+                          {
+                            "args": [
+                              "--host=0.0.0.0",
+                              "--port=8080"
+                            ],
+                            "command": [],
+                            "env": [
+                              {
+                                "name": "POD_IP",
+                                "value": "",
+                                "value_from": [
+                                  {
+                                    "config_map_key_ref": [],
+                                    "field_ref": [
+                                      {
+                                        "api_version": "v1",
+                                        "field_path": "status.podIP"
+                                      }
+                                    ],
+                                    "resource_field_ref": [],
+                                    "secret_key_ref": []
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "POD_NAME",
+                                "value": "",
+                                "value_from": [
+                                  {
+                                    "config_map_key_ref": [],
+                                    "field_ref": [
+                                      {
+                                        "api_version": "v1",
+                                        "field_path": "metadata.name"
+                                      }
+                                    ],
+                                    "resource_field_ref": [],
+                                    "secret_key_ref": []
+                                  }
+                                ]
+                              }
+                            ],
+                            "env_from": [],
+                            "image": "bloomberg/goldpinger:3.11.2",
+                            "image_pull_policy": "IfNotPresent",
+                            "lifecycle": [],
+                            "liveness_probe": [
+                              {
+                                "exec": [],
+                                "failure_threshold": 3,
+                                "grpc": [],
+                                "http_get": [
+                                  {
+                                    "host": "",
+                                    "http_header": [],
+                                    "path": "/healthz",
+                                    "port": "8080",
+                                    "scheme": "HTTP"
+                                  }
+                                ],
+                                "initial_delay_seconds": 15,
+                                "period_seconds": 20,
+                                "success_threshold": 1,
+                                "tcp_socket": [],
+                                "timeout_seconds": 1
+                              }
+                            ],
+                            "name": "goldpinger",
+                            "port": [
+                              {
+                                "container_port": 8080,
+                                "host_ip": "",
+                                "host_port": 0,
+                                "name": "http",
+                                "protocol": "TCP"
+                              }
+                            ],
+                            "readiness_probe": [
+                              {
+                                "exec": [],
+                                "failure_threshold": 3,
+                                "grpc": [],
+                                "http_get": [
+                                  {
+                                    "host": "",
+                                    "http_header": [],
+                                    "path": "/healthz",
+                                    "port": "8080",
+                                    "scheme": "HTTP"
+                                  }
+                                ],
+                                "initial_delay_seconds": 5,
+                                "period_seconds": 10,
+                                "success_threshold": 1,
+                                "tcp_socket": [],
+                                "timeout_seconds": 1
+                              }
+                            ],
+                            "resources": [
+                              {
+                                "limits": {
+                                  "cpu": "250m",
+                                  "memory": "256Mi"
+                                },
+                                "requests": {
+                                  "cpu": "50m",
+                                  "memory": "64Mi"
+                                }
+                              }
+                            ],
+                            "security_context": [],
+                            "startup_probe": [],
+                            "stdin": false,
+                            "stdin_once": false,
+                            "termination_message_path": "/dev/termination-log",
+                            "termination_message_policy": "File",
+                            "tty": false,
+                            "volume_device": [],
+                            "volume_mount": [],
+                            "working_dir": ""
+                          }
+                        ],
+                        "dns_config": [],
+                        "dns_policy": "ClusterFirst",
+                        "enable_service_links": true,
+                        "host_aliases": [],
+                        "host_ipc": false,
+                        "host_network": false,
+                        "host_pid": false,
+                        "hostname": "",
+                        "image_pull_secrets": [],
+                        "init_container": [],
+                        "node_name": "",
+                        "node_selector": {},
+                        "os": [],
+                        "priority_class_name": "",
+                        "readiness_gate": [],
+                        "restart_policy": "Always",
+                        "runtime_class_name": "",
+                        "scheduler_name": "default-scheduler",
+                        "security_context": [],
+                        "service_account_name": "goldpinger",
+                        "share_process_namespace": false,
+                        "subdomain": "",
+                        "termination_grace_period_seconds": 30,
+                        "toleration": [
+                          {
+                            "effect": "NoSchedule",
+                            "key": "node-role.kubernetes.io/control-plane",
+                            "operator": "Equal",
+                            "toleration_seconds": "",
+                            "value": ""
+                          },
+                          {
+                            "effect": "NoSchedule",
+                            "key": "node-role.kubernetes.io/master",
+                            "operator": "Equal",
+                            "toleration_seconds": "",
+                            "value": ""
+                          }
+                        ],
+                        "topology_spread_constraint": [],
+                        "volume": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_rollout": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "apps/v1",
+            "kind": "DaemonSet",
+            "name": "goldpinger",
+            "namespace": "goldpinger"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.goldpinger.kubernetes_cluster_role_binding_v1.goldpinger",
+            "module.goldpinger.kubernetes_cluster_role_v1.goldpinger",
+            "module.goldpinger.kubernetes_namespace_v1.goldpinger",
+            "module.goldpinger.kubernetes_service_account_v1.goldpinger"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.goldpinger",
+      "mode": "managed",
+      "type": "kubernetes_manifest",
+      "name": "goldpinger_service_monitor",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "computed_fields": null,
+            "field_manager": [],
+            "manifest": {
+              "value": {
+                "apiVersion": "monitoring.coreos.com/v1",
+                "kind": "ServiceMonitor",
+                "metadata": {
+                  "labels": {
+                    "release": "rancher-monitoring"
+                  },
+                  "name": "goldpinger",
+                  "namespace": "goldpinger"
+                },
+                "spec": {
+                  "endpoints": [
+                    {
+                      "interval": "30s",
+                      "path": "/metrics",
+                      "port": "http"
+                    }
+                  ],
+                  "namespaceSelector": {
+                    "matchNames": [
+                      "goldpinger"
+                    ]
+                  },
+                  "selector": {
+                    "matchLabels": {
+                      "app": "goldpinger"
+                    }
+                  }
+                }
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "labels": [
+                        "object",
+                        {
+                          "release": "string"
+                        }
+                      ],
+                      "name": "string",
+                      "namespace": "string"
+                    }
+                  ],
+                  "spec": [
+                    "object",
+                    {
+                      "endpoints": [
+                        "tuple",
+                        [
+                          [
+                            "object",
+                            {
+                              "interval": "string",
+                              "path": "string",
+                              "port": "string"
+                            }
+                          ]
+                        ]
+                      ],
+                      "namespaceSelector": [
+                        "object",
+                        {
+                          "matchNames": [
+                            "tuple",
+                            [
+                              "string"
+                            ]
+                          ]
+                        }
+                      ],
+                      "selector": [
+                        "object",
+                        {
+                          "matchLabels": [
+                            "object",
+                            {
+                              "app": "string"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "object": {
+              "value": {
+                "apiVersion": "monitoring.coreos.com/v1",
+                "kind": "ServiceMonitor",
+                "metadata": {
+                  "annotations": null,
+                  "creationTimestamp": null,
+                  "deletionGracePeriodSeconds": null,
+                  "deletionTimestamp": null,
+                  "finalizers": null,
+                  "generateName": null,
+                  "generation": null,
+                  "labels": {
+                    "release": "rancher-monitoring"
+                  },
+                  "managedFields": null,
+                  "name": "goldpinger",
+                  "namespace": "goldpinger",
+                  "ownerReferences": null,
+                  "resourceVersion": null,
+                  "selfLink": null,
+                  "uid": null
+                },
+                "spec": {
+                  "attachMetadata": {
+                    "node": null
+                  },
+                  "bodySizeLimit": null,
+                  "convertClassicHistogramsToNHCB": null,
+                  "endpoints": [
+                    {
+                      "authorization": {
+                        "credentials": {
+                          "key": null,
+                          "name": null,
+                          "optional": null
+                        },
+                        "type": null
+                      },
+                      "basicAuth": {
+                        "password": {
+                          "key": null,
+                          "name": null,
+                          "optional": null
+                        },
+                        "username": {
+                          "key": null,
+                          "name": null,
+                          "optional": null
+                        }
+                      },
+                      "bearerTokenFile": null,
+                      "bearerTokenSecret": {
+                        "key": null,
+                        "name": null,
+                        "optional": null
+                      },
+                      "enableHttp2": null,
+                      "filterRunning": null,
+                      "followRedirects": null,
+                      "honorLabels": null,
+                      "honorTimestamps": null,
+                      "interval": "30s",
+                      "metricRelabelings": null,
+                      "noProxy": null,
+                      "oauth2": {
+                        "clientId": {
+                          "configMap": {
+                            "key": null,
+                            "name": null,
+                            "optional": null
+                          },
+                          "secret": {
+                            "key": null,
+                            "name": null,
+                            "optional": null
+                          }
+                        },
+                        "clientSecret": {
+                          "key": null,
+                          "name": null,
+                          "optional": null
+                        },
+                        "endpointParams": null,
+                        "noProxy": null,
+                        "proxyConnectHeader": null,
+                        "proxyFromEnvironment": null,
+                        "proxyUrl": null,
+                        "scopes": null,
+                        "tlsConfig": {
+                          "ca": {
+                            "configMap": {
+                              "key": null,
+                              "name": null,
+                              "optional": null
+                            },
+                            "secret": {
+                              "key": null,
+                              "name": null,
+                              "optional": null
+                            }
+                          },
+                          "cert": {
+                            "configMap": {
+                              "key": null,
+                              "name": null,
+                              "optional": null
+                            },
+                            "secret": {
+                              "key": null,
+                              "name": null,
+                              "optional": null
+                            }
+                          },
+                          "insecureSkipVerify": null,
+                          "keySecret": {
+                            "key": null,
+                            "name": null,
+                            "optional": null
+                          },
+                          "maxVersion": null,
+                          "minVersion": null,
+                          "serverName": null
+                        },
+                        "tokenUrl": null
+                      },
+                      "params": null,
+                      "path": "/metrics",
+                      "port": "http",
+                      "proxyConnectHeader": null,
+                      "proxyFromEnvironment": null,
+                      "proxyUrl": null,
+                      "relabelings": null,
+                      "scheme": null,
+                      "scrapeTimeout": null,
+                      "targetPort": null,
+                      "tlsConfig": {
+                        "ca": {
+                          "configMap": {
+                            "key": null,
+                            "name": null,
+                            "optional": null
+                          },
+                          "secret": {
+                            "key": null,
+                            "name": null,
+                            "optional": null
+                          }
+                        },
+                        "caFile": null,
+                        "cert": {
+                          "configMap": {
+                            "key": null,
+                            "name": null,
+                            "optional": null
+                          },
+                          "secret": {
+                            "key": null,
+                            "name": null,
+                            "optional": null
+                          }
+                        },
+                        "certFile": null,
+                        "insecureSkipVerify": null,
+                        "keyFile": null,
+                        "keySecret": {
+                          "key": null,
+                          "name": null,
+                          "optional": null
+                        },
+                        "maxVersion": null,
+                        "minVersion": null,
+                        "serverName": null
+                      },
+                      "trackTimestampsStaleness": null
+                    }
+                  ],
+                  "fallbackScrapeProtocol": null,
+                  "jobLabel": null,
+                  "keepDroppedTargets": null,
+                  "labelLimit": null,
+                  "labelNameLengthLimit": null,
+                  "labelValueLengthLimit": null,
+                  "namespaceSelector": {
+                    "any": null,
+                    "matchNames": [
+                      "goldpinger"
+                    ]
+                  },
+                  "nativeHistogramBucketLimit": null,
+                  "nativeHistogramMinBucketFactor": null,
+                  "podTargetLabels": null,
+                  "sampleLimit": null,
+                  "scrapeClass": null,
+                  "scrapeClassicHistograms": null,
+                  "scrapeProtocols": null,
+                  "selector": {
+                    "matchExpressions": null,
+                    "matchLabels": {
+                      "app": "goldpinger"
+                    }
+                  },
+                  "selectorMechanism": null,
+                  "serviceDiscoveryRole": null,
+                  "targetLabels": null,
+                  "targetLimit": null
+                }
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "annotations": [
+                        "map",
+                        "string"
+                      ],
+                      "creationTimestamp": "string",
+                      "deletionGracePeriodSeconds": "number",
+                      "deletionTimestamp": "string",
+                      "finalizers": [
+                        "list",
+                        "string"
+                      ],
+                      "generateName": "string",
+                      "generation": "number",
+                      "labels": [
+                        "map",
+                        "string"
+                      ],
+                      "managedFields": [
+                        "tuple",
+                        [
+                          [
+                            "object",
+                            {
+                              "apiVersion": "string",
+                              "fieldsType": "string",
+                              "fieldsV1": "dynamic",
+                              "manager": "string",
+                              "operation": "string",
+                              "subresource": "string",
+                              "time": "string"
+                            }
+                          ]
+                        ]
+                      ],
+                      "name": "string",
+                      "namespace": "string",
+                      "ownerReferences": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "apiVersion": "string",
+                            "blockOwnerDeletion": "bool",
+                            "controller": "bool",
+                            "kind": "string",
+                            "name": "string",
+                            "uid": "string"
+                          }
+                        ]
+                      ],
+                      "resourceVersion": "string",
+                      "selfLink": "string",
+                      "uid": "string"
+                    }
+                  ],
+                  "spec": [
+                    "object",
+                    {
+                      "attachMetadata": [
+                        "object",
+                        {
+                          "node": "bool"
+                        }
+                      ],
+                      "bodySizeLimit": "string",
+                      "convertClassicHistogramsToNHCB": "bool",
+                      "endpoints": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "authorization": [
+                              "object",
+                              {
+                                "credentials": [
+                                  "object",
+                                  {
+                                    "key": "string",
+                                    "name": "string",
+                                    "optional": "bool"
+                                  }
+                                ],
+                                "type": "string"
+                              }
+                            ],
+                            "basicAuth": [
+                              "object",
+                              {
+                                "password": [
+                                  "object",
+                                  {
+                                    "key": "string",
+                                    "name": "string",
+                                    "optional": "bool"
+                                  }
+                                ],
+                                "username": [
+                                  "object",
+                                  {
+                                    "key": "string",
+                                    "name": "string",
+                                    "optional": "bool"
+                                  }
+                                ]
+                              }
+                            ],
+                            "bearerTokenFile": "string",
+                            "bearerTokenSecret": [
+                              "object",
+                              {
+                                "key": "string",
+                                "name": "string",
+                                "optional": "bool"
+                              }
+                            ],
+                            "enableHttp2": "bool",
+                            "filterRunning": "bool",
+                            "followRedirects": "bool",
+                            "honorLabels": "bool",
+                            "honorTimestamps": "bool",
+                            "interval": "string",
+                            "metricRelabelings": [
+                              "list",
+                              [
+                                "object",
+                                {
+                                  "action": "string",
+                                  "modulus": "number",
+                                  "regex": "string",
+                                  "replacement": "string",
+                                  "separator": "string",
+                                  "sourceLabels": [
+                                    "list",
+                                    "string"
+                                  ],
+                                  "targetLabel": "string"
+                                }
+                              ]
+                            ],
+                            "noProxy": "string",
+                            "oauth2": [
+                              "object",
+                              {
+                                "clientId": [
+                                  "object",
+                                  {
+                                    "configMap": [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ],
+                                    "secret": [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "clientSecret": [
+                                  "object",
+                                  {
+                                    "key": "string",
+                                    "name": "string",
+                                    "optional": "bool"
+                                  }
+                                ],
+                                "endpointParams": [
+                                  "map",
+                                  "string"
+                                ],
+                                "noProxy": "string",
+                                "proxyConnectHeader": [
+                                  "map",
+                                  [
+                                    "list",
+                                    [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ]
+                                  ]
+                                ],
+                                "proxyFromEnvironment": "bool",
+                                "proxyUrl": "string",
+                                "scopes": [
+                                  "list",
+                                  "string"
+                                ],
+                                "tlsConfig": [
+                                  "object",
+                                  {
+                                    "ca": [
+                                      "object",
+                                      {
+                                        "configMap": [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "name": "string",
+                                            "optional": "bool"
+                                          }
+                                        ],
+                                        "secret": [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "name": "string",
+                                            "optional": "bool"
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "cert": [
+                                      "object",
+                                      {
+                                        "configMap": [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "name": "string",
+                                            "optional": "bool"
+                                          }
+                                        ],
+                                        "secret": [
+                                          "object",
+                                          {
+                                            "key": "string",
+                                            "name": "string",
+                                            "optional": "bool"
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "insecureSkipVerify": "bool",
+                                    "keySecret": [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ],
+                                    "maxVersion": "string",
+                                    "minVersion": "string",
+                                    "serverName": "string"
+                                  }
+                                ],
+                                "tokenUrl": "string"
+                              }
+                            ],
+                            "params": [
+                              "map",
+                              [
+                                "list",
+                                "string"
+                              ]
+                            ],
+                            "path": "string",
+                            "port": "string",
+                            "proxyConnectHeader": [
+                              "map",
+                              [
+                                "list",
+                                [
+                                  "object",
+                                  {
+                                    "key": "string",
+                                    "name": "string",
+                                    "optional": "bool"
+                                  }
+                                ]
+                              ]
+                            ],
+                            "proxyFromEnvironment": "bool",
+                            "proxyUrl": "string",
+                            "relabelings": [
+                              "list",
+                              [
+                                "object",
+                                {
+                                  "action": "string",
+                                  "modulus": "number",
+                                  "regex": "string",
+                                  "replacement": "string",
+                                  "separator": "string",
+                                  "sourceLabels": [
+                                    "list",
+                                    "string"
+                                  ],
+                                  "targetLabel": "string"
+                                }
+                              ]
+                            ],
+                            "scheme": "string",
+                            "scrapeTimeout": "string",
+                            "targetPort": "string",
+                            "tlsConfig": [
+                              "object",
+                              {
+                                "ca": [
+                                  "object",
+                                  {
+                                    "configMap": [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ],
+                                    "secret": [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "caFile": "string",
+                                "cert": [
+                                  "object",
+                                  {
+                                    "configMap": [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ],
+                                    "secret": [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "name": "string",
+                                        "optional": "bool"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "certFile": "string",
+                                "insecureSkipVerify": "bool",
+                                "keyFile": "string",
+                                "keySecret": [
+                                  "object",
+                                  {
+                                    "key": "string",
+                                    "name": "string",
+                                    "optional": "bool"
+                                  }
+                                ],
+                                "maxVersion": "string",
+                                "minVersion": "string",
+                                "serverName": "string"
+                              }
+                            ],
+                            "trackTimestampsStaleness": "bool"
+                          }
+                        ]
+                      ],
+                      "fallbackScrapeProtocol": "string",
+                      "jobLabel": "string",
+                      "keepDroppedTargets": "number",
+                      "labelLimit": "number",
+                      "labelNameLengthLimit": "number",
+                      "labelValueLengthLimit": "number",
+                      "namespaceSelector": [
+                        "object",
+                        {
+                          "any": "bool",
+                          "matchNames": [
+                            "list",
+                            "string"
+                          ]
+                        }
+                      ],
+                      "nativeHistogramBucketLimit": "number",
+                      "nativeHistogramMinBucketFactor": "string",
+                      "podTargetLabels": [
+                        "list",
+                        "string"
+                      ],
+                      "sampleLimit": "number",
+                      "scrapeClass": "string",
+                      "scrapeClassicHistograms": "bool",
+                      "scrapeProtocols": [
+                        "list",
+                        "string"
+                      ],
+                      "selector": [
+                        "object",
+                        {
+                          "matchExpressions": [
+                            "list",
+                            [
+                              "object",
+                              {
+                                "key": "string",
+                                "operator": "string",
+                                "values": [
+                                  "list",
+                                  "string"
+                                ]
+                              }
+                            ]
+                          ],
+                          "matchLabels": [
+                            "map",
+                            "string"
+                          ]
+                        }
+                      ],
+                      "selectorMechanism": "string",
+                      "serviceDiscoveryRole": "string",
+                      "targetLabels": [
+                        "list",
+                        "string"
+                      ],
+                      "targetLimit": "number"
+                    }
+                  ]
+                }
+              ]
+            },
+            "timeouts": [],
+            "wait": [],
+            "wait_for": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "monitoring.coreos.com/v1",
+            "kind": "ServiceMonitor",
+            "name": "goldpinger",
+            "namespace": "goldpinger"
+          },
+          "dependencies": [
+            "module.goldpinger.kubernetes_cluster_role_binding_v1.goldpinger",
+            "module.goldpinger.kubernetes_cluster_role_v1.goldpinger",
+            "module.goldpinger.kubernetes_daemon_set_v1.goldpinger",
+            "module.goldpinger.kubernetes_namespace_v1.goldpinger",
+            "module.goldpinger.kubernetes_service_account_v1.goldpinger",
+            "module.goldpinger.kubernetes_service_v1.goldpinger"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.goldpinger",
+      "mode": "managed",
+      "type": "kubernetes_namespace_v1",
+      "name": "goldpinger",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "goldpinger",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "goldpinger",
+                "resource_version": "12238591",
+                "uid": "804de374-3439-42a4-b91d-97da513930a0"
+              }
+            ],
+            "timeouts": null,
+            "wait_for_default_service_account": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Namespace",
+            "name": "goldpinger"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.goldpinger",
+      "mode": "managed",
+      "type": "kubernetes_service_account_v1",
+      "name": "goldpinger",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "automount_service_account_token": true,
+            "default_secret_name": "",
+            "id": "goldpinger/goldpinger",
+            "image_pull_secret": [],
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "goldpinger",
+                "namespace": "goldpinger",
+                "resource_version": "12083818",
+                "uid": "d279393c-fbdf-4a70-bc37-dd25c7fd81ec"
+              }
+            ],
+            "secret": [],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "ServiceAccount",
+            "name": "goldpinger",
+            "namespace": "goldpinger"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.goldpinger.kubernetes_namespace_v1.goldpinger"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.goldpinger",
+      "mode": "managed",
+      "type": "kubernetes_service_v1",
+      "name": "goldpinger",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "goldpinger/goldpinger",
+            "metadata": [
+              {
+                "annotations": {
+                  "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":31078,\"protocol\":\"TCP\",\"serviceName\":\"goldpinger:goldpinger\",\"allNodes\":true}]"
+                },
+                "generate_name": "",
+                "generation": 0,
+                "labels": {
+                  "app": "goldpinger"
+                },
+                "name": "goldpinger",
+                "namespace": "goldpinger",
+                "resource_version": "12238626",
+                "uid": "02945012-2c22-420f-81af-442e64c710be"
+              }
+            ],
+            "spec": [
+              {
+                "allocate_load_balancer_node_ports": true,
+                "cluster_ip": "10.43.249.24",
+                "cluster_ips": [
+                  "10.43.249.24"
+                ],
+                "external_ips": [],
+                "external_name": "",
+                "external_traffic_policy": "Cluster",
+                "health_check_node_port": 0,
+                "internal_traffic_policy": "Cluster",
+                "ip_families": [
+                  "IPv4"
+                ],
+                "ip_family_policy": "SingleStack",
+                "load_balancer_class": "",
+                "load_balancer_ip": "",
+                "load_balancer_source_ranges": [],
+                "port": [
+                  {
+                    "app_protocol": "",
+                    "name": "http",
+                    "node_port": 31078,
+                    "port": 80,
+                    "protocol": "TCP",
+                    "target_port": "8080"
+                  }
+                ],
+                "publish_not_ready_addresses": false,
+                "selector": {
+                  "app": "goldpinger"
+                },
+                "session_affinity": "None",
+                "session_affinity_config": [],
+                "type": "NodePort"
+              }
+            ],
+            "status": [
+              {
+                "load_balancer": [
+                  {
+                    "ingress": []
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_load_balancer": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Service",
+            "name": "goldpinger",
+            "namespace": "goldpinger"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "module.goldpinger.kubernetes_cluster_role_binding_v1.goldpinger",
+            "module.goldpinger.kubernetes_cluster_role_v1.goldpinger",
+            "module.goldpinger.kubernetes_daemon_set_v1.goldpinger",
+            "module.goldpinger.kubernetes_namespace_v1.goldpinger",
+            "module.goldpinger.kubernetes_service_account_v1.goldpinger"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.homepage",
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "homepage",
+      "provider": "provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "atomic": false,
+            "chart": "homepage",
+            "cleanup_on_fail": false,
+            "create_namespace": true,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "homepage",
+            "keyring": null,
+            "lint": false,
+            "manifest": null,
+            "max_history": 0,
+            "metadata": {
+              "app_version": "v1.2.0",
+              "chart": "homepage",
+              "first_deployed": 1785654880,
+              "last_deployed": 1785654880,
+              "name": "homepage",
+              "namespace": "homepage",
+              "notes": "",
+              "revision": 1,
+              "values": "{}",
+              "version": "2.1.0"
+            },
+            "name": "homepage",
+            "namespace": "homepage",
+            "pass_credentials": false,
+            "postrender": null,
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": "https://jameswynn.github.io/helm-charts",
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": null,
+            "set_list": null,
+            "set_sensitive": null,
+            "set_wo": null,
+            "set_wo_revision": null,
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 600,
+            "values": null,
+            "verify": false,
+            "version": "2.1.0",
+            "wait": true,
+            "wait_for_jobs": false
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "repository_password"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "identity": {
+            "namespace": "homepage",
+            "release_name": "homepage"
+          }
+        }
+      ]
+    },
+    {
+      "module": "module.infra",
+      "mode": "managed",
+      "type": "kubernetes_deployment",
+      "name": "nginx",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "terraform-demo/nginx-deployment",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 1,
+                "labels": {
+                  "app": "nginx"
+                },
+                "name": "nginx-deployment",
+                "namespace": "terraform-demo",
+                "resource_version": "9311561",
+                "uid": "bcc9009d-6532-41d7-b7da-aa2cdfaea2ad"
+              }
+            ],
+            "spec": [
+              {
+                "min_ready_seconds": 0,
+                "paused": false,
+                "progress_deadline_seconds": 600,
+                "replicas": "2",
+                "revision_history_limit": 10,
+                "selector": [
+                  {
+                    "match_expressions": [],
+                    "match_labels": {
+                      "app": "nginx"
+                    }
+                  }
+                ],
+                "strategy": [
+                  {
+                    "rolling_update": [
+                      {
+                        "max_surge": "25%",
+                        "max_unavailable": "25%"
+                      }
+                    ],
+                    "type": "RollingUpdate"
+                  }
+                ],
+                "template": [
+                  {
+                    "metadata": [
+                      {
+                        "annotations": {},
+                        "generate_name": "",
+                        "generation": 0,
+                        "labels": {
+                          "app": "nginx"
+                        },
+                        "name": "",
+                        "namespace": "",
+                        "resource_version": "",
+                        "uid": ""
+                      }
+                    ],
+                    "spec": [
+                      {
+                        "active_deadline_seconds": 0,
+                        "affinity": [],
+                        "automount_service_account_token": true,
+                        "container": [
+                          {
+                            "args": [],
+                            "command": [],
+                            "env": [],
+                            "env_from": [],
+                            "image": "nginx:1.25",
+                            "image_pull_policy": "IfNotPresent",
+                            "lifecycle": [],
+                            "liveness_probe": [],
+                            "name": "nginx",
+                            "port": [
+                              {
+                                "container_port": 80,
+                                "host_ip": "",
+                                "host_port": 0,
+                                "name": "",
+                                "protocol": "TCP"
+                              }
+                            ],
+                            "readiness_probe": [],
+                            "resources": [
+                              {
+                                "limits": {},
+                                "requests": {}
+                              }
+                            ],
+                            "security_context": [],
+                            "startup_probe": [],
+                            "stdin": false,
+                            "stdin_once": false,
+                            "termination_message_path": "/dev/termination-log",
+                            "termination_message_policy": "File",
+                            "tty": false,
+                            "volume_device": [],
+                            "volume_mount": [],
+                            "working_dir": ""
+                          }
+                        ],
+                        "dns_config": [],
+                        "dns_policy": "ClusterFirst",
+                        "enable_service_links": true,
+                        "host_aliases": [],
+                        "host_ipc": false,
+                        "host_network": false,
+                        "host_pid": false,
+                        "hostname": "",
+                        "image_pull_secrets": [],
+                        "init_container": [],
+                        "node_name": "",
+                        "node_selector": {},
+                        "os": [],
+                        "priority_class_name": "",
+                        "readiness_gate": [],
+                        "restart_policy": "Always",
+                        "runtime_class_name": "",
+                        "scheduler_name": "default-scheduler",
+                        "security_context": [],
+                        "service_account_name": "",
+                        "share_process_namespace": false,
+                        "subdomain": "",
+                        "termination_grace_period_seconds": 30,
+                        "toleration": [],
+                        "topology_spread_constraint": [],
+                        "volume": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_rollout": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "apps/v1",
+            "kind": "Deployment",
+            "name": "nginx-deployment",
+            "namespace": "terraform-demo"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.infra.kubernetes_namespace.example"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.infra",
+      "mode": "managed",
+      "type": "kubernetes_namespace",
+      "name": "example",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "terraform-demo",
+            "metadata": [
+              {
+                "annotations": {
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T07:54:18Z\"}]}"
+                },
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "terraform-demo",
+                "resource_version": "12238600",
+                "uid": "7fb79506-dc9c-4407-8086-02d95fd81a81"
+              }
+            ],
+            "timeouts": null,
+            "wait_for_default_service_account": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Namespace",
+            "name": "terraform-demo"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.jellyfin",
+      "mode": "managed",
+      "type": "kubernetes_deployment_v1",
+      "name": "jellyfin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "jellyfin/jellyfin",
+            "metadata": [
+              {
+                "annotations": {
+                  "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":30096,\"protocol\":\"TCP\",\"serviceName\":\"jellyfin:jellyfin\",\"allNodes\":true}]"
+                },
+                "generate_name": "",
+                "generation": 41,
+                "labels": {
+                  "app": "jellyfin"
+                },
+                "name": "jellyfin",
+                "namespace": "jellyfin",
+                "resource_version": "12238620",
+                "uid": "9b326c4b-d04d-410b-b63c-a5e288631240"
+              }
+            ],
+            "spec": [
+              {
+                "min_ready_seconds": 0,
+                "paused": false,
+                "progress_deadline_seconds": 600,
+                "replicas": "1",
+                "revision_history_limit": 10,
+                "selector": [
+                  {
+                    "match_expressions": [],
+                    "match_labels": {
+                      "app": "jellyfin"
+                    }
+                  }
+                ],
+                "strategy": [
+                  {
+                    "rolling_update": [
+                      {
+                        "max_surge": "25%",
+                        "max_unavailable": "25%"
+                      }
+                    ],
+                    "type": "RollingUpdate"
+                  }
+                ],
+                "template": [
+                  {
+                    "metadata": [
+                      {
+                        "annotations": {},
+                        "generate_name": "",
+                        "generation": 0,
+                        "labels": {
+                          "app": "jellyfin"
+                        },
+                        "name": "",
+                        "namespace": "",
+                        "resource_version": "",
+                        "uid": ""
+                      }
+                    ],
+                    "spec": [
+                      {
+                        "active_deadline_seconds": 0,
+                        "affinity": [],
+                        "automount_service_account_token": true,
+                        "container": [
+                          {
+                            "args": [],
+                            "command": [],
+                            "env": [
+                              {
+                                "name": "JELLYFIN_PublishedServerUrl",
+                                "value": "http://localhost:8096",
+                                "value_from": []
+                              }
+                            ],
+                            "env_from": [],
+                            "image": "jellyfin/jellyfin:latest",
+                            "image_pull_policy": "IfNotPresent",
+                            "lifecycle": [],
+                            "liveness_probe": [],
+                            "name": "jellyfin",
+                            "port": [
+                              {
+                                "container_port": 8096,
+                                "host_ip": "",
+                                "host_port": 0,
+                                "name": "http",
+                                "protocol": "TCP"
+                              }
+                            ],
+                            "readiness_probe": [],
+                            "resources": [
+                              {
+                                "limits": {
+                                  "cpu": "4",
+                                  "memory": "16Gi",
+                                  "nvidia.com/gpu": "1"
+                                },
+                                "requests": {
+                                  "cpu": "250m",
+                                  "memory": "512Mi",
+                                  "nvidia.com/gpu": "1"
+                                }
+                              }
+                            ],
+                            "security_context": [],
+                            "startup_probe": [],
+                            "stdin": false,
+                            "stdin_once": false,
+                            "termination_message_path": "/dev/termination-log",
+                            "termination_message_policy": "File",
+                            "tty": false,
+                            "volume_device": [],
+                            "volume_mount": [
+                              {
+                                "mount_path": "/config",
+                                "mount_propagation": "None",
+                                "name": "jellyfin-data",
+                                "read_only": false,
+                                "sub_path": "config",
+                                "sub_path_expr": ""
+                              },
+                              {
+                                "mount_path": "/media",
+                                "mount_propagation": "None",
+                                "name": "jellyfin-data",
+                                "read_only": true,
+                                "sub_path": "media",
+                                "sub_path_expr": ""
+                              }
+                            ],
+                            "working_dir": ""
+                          }
+                        ],
+                        "dns_config": [],
+                        "dns_policy": "ClusterFirst",
+                        "enable_service_links": true,
+                        "host_aliases": [],
+                        "host_ipc": false,
+                        "host_network": false,
+                        "host_pid": false,
+                        "hostname": "",
+                        "image_pull_secrets": [],
+                        "init_container": [],
+                        "node_name": "",
+                        "node_selector": {
+                          "kubernetes.io/hostname": "rancher-gpu1"
+                        },
+                        "os": [],
+                        "priority_class_name": "",
+                        "readiness_gate": [],
+                        "restart_policy": "Always",
+                        "runtime_class_name": "",
+                        "scheduler_name": "default-scheduler",
+                        "security_context": [
+                          {
+                            "fs_group": "1000",
+                            "fs_group_change_policy": "",
+                            "run_as_group": "",
+                            "run_as_non_root": false,
+                            "run_as_user": "",
+                            "se_linux_options": [],
+                            "seccomp_profile": [],
+                            "supplemental_groups": [],
+                            "sysctl": [],
+                            "windows_options": []
+                          }
+                        ],
+                        "service_account_name": "",
+                        "share_process_namespace": false,
+                        "subdomain": "",
+                        "termination_grace_period_seconds": 30,
+                        "toleration": [],
+                        "topology_spread_constraint": [],
+                        "volume": [
+                          {
+                            "aws_elastic_block_store": [],
+                            "azure_disk": [],
+                            "azure_file": [],
+                            "ceph_fs": [],
+                            "cinder": [],
+                            "config_map": [],
+                            "csi": [],
+                            "downward_api": [],
+                            "empty_dir": [],
+                            "ephemeral": [],
+                            "fc": [],
+                            "flex_volume": [],
+                            "flocker": [],
+                            "gce_persistent_disk": [],
+                            "git_repo": [],
+                            "glusterfs": [],
+                            "host_path": [],
+                            "iscsi": [],
+                            "local": [],
+                            "name": "jellyfin-data",
+                            "nfs": [],
+                            "persistent_volume_claim": [
+                              {
+                                "claim_name": "jellyfin-data",
+                                "read_only": false
+                              }
+                            ],
+                            "photon_persistent_disk": [],
+                            "projected": [],
+                            "quobyte": [],
+                            "rbd": [],
+                            "secret": [],
+                            "vsphere_volume": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_rollout": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "apps/v1",
+            "kind": "Deployment",
+            "name": "jellyfin",
+            "namespace": "jellyfin"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.jellyfin.kubernetes_namespace_v1.jellyfin",
+            "module.jellyfin.kubernetes_persistent_volume_claim_v1.jellyfin",
+            "module.jellyfin.kubernetes_persistent_volume_v1.jellyfin",
+            "module.jellyfin.kubernetes_storage_class_v1.jellyfin_nfs"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.jellyfin",
+      "mode": "managed",
+      "type": "kubernetes_namespace_v1",
+      "name": "jellyfin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "jellyfin",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "jellyfin",
+                "resource_version": "12238592",
+                "uid": "677f1003-c232-4ed1-a40c-61f55920b0c8"
+              }
+            ],
+            "timeouts": null,
+            "wait_for_default_service_account": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Namespace",
+            "name": "jellyfin"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.jellyfin",
+      "mode": "managed",
+      "type": "kubernetes_persistent_volume_claim_v1",
+      "name": "jellyfin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "jellyfin/jellyfin-data",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "jellyfin-data",
+                "namespace": "jellyfin",
+                "resource_version": "808763",
+                "uid": "495f5300-cbd4-44e7-95c4-d27eba723c05"
+              }
+            ],
+            "spec": [
+              {
+                "access_modes": [
+                  "ReadWriteMany"
+                ],
+                "resources": [
+                  {
+                    "limits": {},
+                    "requests": {
+                      "storage": "1Ti"
+                    }
+                  }
+                ],
+                "selector": [],
+                "storage_class_name": "jellyfin-nfs",
+                "volume_mode": "Filesystem",
+                "volume_name": "jellyfin-data-pv"
+              }
+            ],
+            "timeouts": null,
+            "wait_until_bound": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.jellyfin.kubernetes_namespace_v1.jellyfin",
+            "module.jellyfin.kubernetes_persistent_volume_v1.jellyfin",
+            "module.jellyfin.kubernetes_storage_class_v1.jellyfin_nfs"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.jellyfin",
+      "mode": "managed",
+      "type": "kubernetes_persistent_volume_v1",
+      "name": "jellyfin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "jellyfin-data-pv",
+            "metadata": [
+              {
+                "annotations": {},
+                "generation": 0,
+                "labels": {},
+                "name": "jellyfin-data-pv",
+                "resource_version": "808686",
+                "uid": "5dcf412b-dc8e-4daf-b6f1-3ba4f84529d1"
+              }
+            ],
+            "spec": [
+              {
+                "access_modes": [
+                  "ReadWriteMany"
+                ],
+                "capacity": {
+                  "storage": "1Ti"
+                },
+                "claim_ref": [
+                  {
+                    "name": "jellyfin-data",
+                    "namespace": "jellyfin"
+                  }
+                ],
+                "mount_options": [
+                  "hard",
+                  "nfsvers=4.1"
+                ],
+                "node_affinity": [],
+                "persistent_volume_reclaim_policy": "Retain",
+                "persistent_volume_source": [
+                  {
+                    "aws_elastic_block_store": [],
+                    "azure_disk": [],
+                    "azure_file": [],
+                    "ceph_fs": [],
+                    "cinder": [],
+                    "csi": [
+                      {
+                        "controller_expand_secret_ref": [],
+                        "controller_publish_secret_ref": [],
+                        "driver": "nfs.csi.k8s.io",
+                        "fs_type": "",
+                        "node_publish_secret_ref": [],
+                        "node_stage_secret_ref": [],
+                        "read_only": false,
+                        "volume_attributes": {
+                          "server": "10.0.0.9",
+                          "share": "/Volume2/Labdata/jellyfin"
+                        },
+                        "volume_handle": "jellyfin-data"
+                      }
+                    ],
+                    "fc": [],
+                    "flex_volume": [],
+                    "flocker": [],
+                    "gce_persistent_disk": [],
+                    "glusterfs": [],
+                    "host_path": [],
+                    "iscsi": [],
+                    "local": [],
+                    "nfs": [],
+                    "photon_persistent_disk": [],
+                    "quobyte": [],
+                    "rbd": [],
+                    "vsphere_volume": []
+                  }
+                ],
+                "storage_class_name": "jellyfin-nfs",
+                "volume_mode": "Filesystem"
+              }
+            ],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.jellyfin.kubernetes_storage_class_v1.jellyfin_nfs"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.jellyfin",
+      "mode": "managed",
+      "type": "kubernetes_service_v1",
+      "name": "jellyfin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "jellyfin/jellyfin",
+            "metadata": [
+              {
+                "annotations": {
+                  "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":30096,\"protocol\":\"TCP\",\"serviceName\":\"jellyfin:jellyfin\",\"allNodes\":true}]"
+                },
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "jellyfin",
+                "namespace": "jellyfin",
+                "resource_version": "12238625",
+                "uid": "699294ef-512a-4e29-a81b-85041145f2b1"
+              }
+            ],
+            "spec": [
+              {
+                "allocate_load_balancer_node_ports": true,
+                "cluster_ip": "10.43.152.195",
+                "cluster_ips": [
+                  "10.43.152.195"
+                ],
+                "external_ips": [],
+                "external_name": "",
+                "external_traffic_policy": "Cluster",
+                "health_check_node_port": 0,
+                "internal_traffic_policy": "Cluster",
+                "ip_families": [
+                  "IPv4"
+                ],
+                "ip_family_policy": "SingleStack",
+                "load_balancer_class": "",
+                "load_balancer_ip": "",
+                "load_balancer_source_ranges": [],
+                "port": [
+                  {
+                    "app_protocol": "",
+                    "name": "http",
+                    "node_port": 30096,
+                    "port": 8096,
+                    "protocol": "TCP",
+                    "target_port": "8096"
+                  }
+                ],
+                "publish_not_ready_addresses": false,
+                "selector": {
+                  "app": "jellyfin"
+                },
+                "session_affinity": "None",
+                "session_affinity_config": [],
+                "type": "NodePort"
+              }
+            ],
+            "status": [
+              {
+                "load_balancer": [
+                  {
+                    "ingress": []
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_load_balancer": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Service",
+            "name": "jellyfin",
+            "namespace": "jellyfin"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "module.jellyfin.kubernetes_deployment_v1.jellyfin",
+            "module.jellyfin.kubernetes_namespace_v1.jellyfin",
+            "module.jellyfin.kubernetes_persistent_volume_claim_v1.jellyfin",
+            "module.jellyfin.kubernetes_persistent_volume_v1.jellyfin",
+            "module.jellyfin.kubernetes_storage_class_v1.jellyfin_nfs"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.jellyfin",
+      "mode": "managed",
+      "type": "kubernetes_storage_class_v1",
+      "name": "jellyfin_nfs",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_volume_expansion": true,
+            "allowed_topologies": [],
+            "id": "jellyfin-nfs",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "jellyfin-nfs",
+                "resource_version": "808667",
+                "uid": "c5a141c7-c36f-4b50-a9c4-09148915b289"
+              }
+            ],
+            "mount_options": [
+              "hard",
+              "nfsvers=4.1"
+            ],
+            "parameters": {
+              "server": "10.0.0.9",
+              "share": "/Volume2/Labdata/jellyfin"
+            },
+            "reclaim_policy": "Retain",
+            "storage_provisioner": "nfs.csi.k8s.io",
+            "volume_binding_mode": "Immediate"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.kubevirt",
+      "mode": "managed",
+      "type": "kubernetes_manifest",
+      "name": "kubevirt_operator",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "index_key": "Role-kubevirt-operator",
+          "schema_version": 1,
+          "attributes": {
+            "computed_fields": null,
+            "field_manager": [],
+            "manifest": {
+              "value": null,
+              "type": [
+                "object",
+                {}
+              ]
+            },
+            "object": {
+              "value": {
+                "apiVersion": "rbac.authorization.k8s.io/v1",
+                "kind": "Role",
+                "metadata": {
+                  "annotations": null,
+                  "creationTimestamp": null,
+                  "deletionGracePeriodSeconds": null,
+                  "deletionTimestamp": null,
+                  "finalizers": null,
+                  "generateName": null,
+                  "generation": null,
+                  "labels": {
+                    "kubevirt.io": ""
+                  },
+                  "managedFields": null,
+                  "name": "kubevirt-operator",
+                  "namespace": "kubevirt",
+                  "ownerReferences": null,
+                  "resourceVersion": null,
+                  "selfLink": null,
+                  "uid": null
+                },
+                "rules": [
+                  {
+                    "apiGroups": [
+                      ""
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": [
+                      "kubevirt-ca",
+                      "kubevirt-export-ca",
+                      "kubevirt-virt-handler-certs",
+                      "kubevirt-virt-handler-server-certs",
+                      "kubevirt-operator-certs",
+                      "kubevirt-virt-api-certs",
+                      "kubevirt-controller-certs",
+                      "kubevirt-exportproxy-certs",
+                      "kubevirt-synchronization-controller-certs",
+                      "kubevirt-synchronization-controller-server-certs"
+                    ],
+                    "resources": [
+                      "secrets"
+                    ],
+                    "verbs": [
+                      "create",
+                      "get",
+                      "list",
+                      "watch",
+                      "patch",
+                      "delete"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      ""
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "configmaps"
+                    ],
+                    "verbs": [
+                      "create",
+                      "get",
+                      "list",
+                      "watch",
+                      "patch",
+                      "delete"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      "route.openshift.io"
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "routes"
+                    ],
+                    "verbs": [
+                      "create",
+                      "get",
+                      "list",
+                      "watch",
+                      "patch",
+                      "delete"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      "route.openshift.io"
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "routes/custom-host"
+                    ],
+                    "verbs": [
+                      "create"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      "coordination.k8s.io"
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "leases"
+                    ],
+                    "verbs": [
+                      "get",
+                      "list",
+                      "watch",
+                      "delete",
+                      "update",
+                      "create",
+                      "patch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      ""
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "configmaps"
+                    ],
+                    "verbs": [
+                      "get",
+                      "list",
+                      "watch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      "route.openshift.io"
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "routes"
+                    ],
+                    "verbs": [
+                      "list",
+                      "get",
+                      "watch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      ""
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "secrets"
+                    ],
+                    "verbs": [
+                      "list",
+                      "get",
+                      "watch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      "networking.k8s.io"
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "ingresses"
+                    ],
+                    "verbs": [
+                      "list",
+                      "get",
+                      "watch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      "coordination.k8s.io"
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "leases"
+                    ],
+                    "verbs": [
+                      "get",
+                      "list",
+                      "watch",
+                      "delete",
+                      "update",
+                      "create",
+                      "patch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      ""
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "configmaps"
+                    ],
+                    "verbs": [
+                      "get",
+                      "list",
+                      "watch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      ""
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": [
+                      "kubevirt-export-ca"
+                    ],
+                    "resources": [
+                      "configmaps"
+                    ],
+                    "verbs": [
+                      "get",
+                      "list",
+                      "watch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      ""
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": [
+                      "kubevirt-ca"
+                    ],
+                    "resources": [
+                      "configmaps"
+                    ],
+                    "verbs": [
+                      "get",
+                      "list",
+                      "watch"
+                    ]
+                  },
+                  {
+                    "apiGroups": [
+                      "coordination.k8s.io"
+                    ],
+                    "nonResourceURLs": null,
+                    "resourceNames": null,
+                    "resources": [
+                      "leases"
+                    ],
+                    "verbs": [
+                      "get",
+                      "list",
+                      "watch",
+                      "delete",
+                      "update",
+                      "create",
+                      "patch"
+                    ]
+                  }
+                ]
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "annotations": [
+                        "map",
+                        "string"
+                      ],
+                      "creationTimestamp": "string",
+                      "deletionGracePeriodSeconds": "number",
+                      "deletionTimestamp": "string",
+                      "finalizers": [
+                        "list",
+                        "string"
+                      ],
+                      "generateName": "string",
+                      "generation": "number",
+                      "labels": [
+                        "map",
+                        "string"
+                      ],
+                      "managedFields": [
+                        "tuple",
+                        [
+                          [
+                            "object",
+                            {
+                              "apiVersion": "string",
+                              "fieldsType": "string",
+                              "fieldsV1": "dynamic",
+                              "manager": "string",
+                              "operation": "string",
+                              "subresource": "string",
+                              "time": "string"
+                            }
+                          ]
+                        ]
+                      ],
+                      "name": "string",
+                      "namespace": "string",
+                      "ownerReferences": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "apiVersion": "string",
+                            "blockOwnerDeletion": "bool",
+                            "controller": "bool",
+                            "kind": "string",
+                            "name": "string",
+                            "uid": "string"
+                          }
+                        ]
+                      ],
+                      "resourceVersion": "string",
+                      "selfLink": "string",
+                      "uid": "string"
+                    }
+                  ],
+                  "rules": [
+                    "list",
+                    [
+                      "object",
+                      {
+                        "apiGroups": [
+                          "list",
+                          "string"
+                        ],
+                        "nonResourceURLs": [
+                          "list",
+                          "string"
+                        ],
+                        "resourceNames": [
+                          "list",
+                          "string"
+                        ],
+                        "resources": [
+                          "list",
+                          "string"
+                        ],
+                        "verbs": [
+                          "list",
+                          "string"
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            "timeouts": [],
+            "wait": [],
+            "wait_for": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "rbac.authorization.k8s.io/v1",
+            "kind": "Role",
+            "name": "kubevirt-operator",
+            "namespace": "kubevirt"
+          },
+          "private": "gapJc0ltcG9ydGVkww=="
+        }
+      ]
+    },
+    {
+      "module": "module.kubevirt",
+      "mode": "managed",
+      "type": "kubernetes_namespace",
+      "name": "kubevirt",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "kubevirt",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "kubevirt",
+                "resource_version": "12238590",
+                "uid": "cfec1af0-6821-4102-b753-30dee23713a7"
+              }
+            ],
+            "timeouts": null,
+            "wait_for_default_service_account": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Namespace",
+            "name": "kubevirt"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.kubevirt",
+      "mode": "managed",
+      "type": "kubernetes_service_account",
+      "name": "kubevirt_operator",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "automount_service_account_token": true,
+            "default_secret_name": "",
+            "id": "kubevirt/kubevirt-operator",
+            "image_pull_secret": [],
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "kubevirt-operator",
+                "namespace": "kubevirt",
+                "resource_version": "12232231",
+                "uid": "882c9ef4-42af-4bb1-b77e-4e977b2b26a2"
+              }
+            ],
+            "secret": [],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "ServiceAccount",
+            "name": "kubevirt-operator",
+            "namespace": "kubevirt"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.kubevirt.kubernetes_namespace.kubevirt"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

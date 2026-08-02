@@ -38,6 +38,22 @@ module "goldpinger" {
   replicas = 3
 }
 
+module "kubevirt" {
+  source = "./terraform-modules/kubevirt"
+}
+
+module "homepage" {
+  source = "./terraform-modules/homepage"
+}
+
+module "kubevirt_manager" {
+  source = "./terraform-modules/kubevirt-manager"
+
+  providers = {
+    kubernetes = kubernetes
+  }
+}
+
 #module "ollama" {
 #  source = "./terraform-modules/ollama"
 #

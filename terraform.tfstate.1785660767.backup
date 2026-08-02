@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.14.8",
-  "serial": 365,
+  "serial": 338,
   "lineage": "acccfb74-40b4-1c27-fc04-f8886d2360a2",
   "outputs": {
     "argocd_helm_name": {
@@ -124,14 +124,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:54:36Z\"}]}",
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:46:32Z\"}]}",
                   "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "argocd",
-                "resource_version": "12281101",
+                "resource_version": "12275804",
                 "uid": "e58c2125-f890-4b2e-9264-07e66a70c2a0"
               }
             ],
@@ -281,7 +281,7 @@
                 },
                 "name": "goldpinger",
                 "namespace": "goldpinger",
-                "resource_version": "12281116",
+                "resource_version": "12275822",
                 "uid": "3fdee5e3-fbc1-46a9-a8b3-e068ae015f34"
               }
             ],
@@ -1312,14 +1312,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:54:36Z\"}]}",
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:46:31Z\"}]}",
                   "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "goldpinger",
-                "resource_version": "12281092",
+                "resource_version": "12275803",
                 "uid": "804de374-3439-42a4-b91d-97da513930a0"
               }
             ],
@@ -1404,7 +1404,7 @@
                 },
                 "name": "goldpinger",
                 "namespace": "goldpinger",
-                "resource_version": "12281122",
+                "resource_version": "12275830",
                 "uid": "02945012-2c22-420f-81af-442e64c710be"
               }
             ],
@@ -1735,14 +1735,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:54:36Z\"}]}",
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:46:32Z\"}]}",
                   "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "terraform-demo",
-                "resource_version": "12281093",
+                "resource_version": "12275802",
                 "uid": "7fb79506-dc9c-4407-8086-02d95fd81a81"
               }
             ],
@@ -1777,13 +1777,13 @@
                   "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":30096,\"protocol\":\"TCP\",\"serviceName\":\"jellyfin:jellyfin\",\"allNodes\":true}]"
                 },
                 "generate_name": "",
-                "generation": 55,
+                "generation": 51,
                 "labels": {
                   "app": "jellyfin"
                 },
                 "name": "jellyfin",
                 "namespace": "jellyfin",
-                "resource_version": "12281117",
+                "resource_version": "12275825",
                 "uid": "9b326c4b-d04d-410b-b63c-a5e288631240"
               }
             ],
@@ -2022,13 +2022,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:54:36Z\"}]}"
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:46:31Z\"}]}",
+                  "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "jellyfin",
-                "resource_version": "12281097",
+                "resource_version": "12275798",
                 "uid": "677f1003-c232-4ed1-a40c-61f55920b0c8"
               }
             ],
@@ -2217,7 +2218,7 @@
                 "labels": {},
                 "name": "jellyfin",
                 "namespace": "jellyfin",
-                "resource_version": "12281121",
+                "resource_version": "12275829",
                 "uid": "699294ef-512a-4e29-a81b-85041145f2b1"
               }
             ],
@@ -4611,14 +4612,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:54:36Z\"}]}",
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:46:31Z\"}]}",
                   "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "kubevirt",
-                "resource_version": "12281099",
+                "resource_version": "12275795",
                 "uid": "cfec1af0-6821-4102-b753-30dee23713a7"
               }
             ],
@@ -18321,6 +18322,296 @@
           ]
         },
         {
+          "index_key": "Service-kubevirt-manager",
+          "schema_version": 1,
+          "attributes": {
+            "computed_fields": null,
+            "field_manager": [],
+            "manifest": {
+              "value": {
+                "apiVersion": "v1",
+                "kind": "Service",
+                "metadata": {
+                  "labels": {
+                    "app": "kubevirt-manager",
+                    "kubevirt-manager.io/version": "nightly"
+                  },
+                  "name": "kubevirt-manager",
+                  "namespace": "kubevirt-manager"
+                },
+                "spec": {
+                  "ports": [
+                    {
+                      "port": 8080,
+                      "protocol": "TCP",
+                      "targetPort": 8080
+                    }
+                  ],
+                  "selector": {
+                    "app": "kubevirt-manager"
+                  },
+                  "type": "ClusterIP"
+                }
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "labels": [
+                        "object",
+                        {
+                          "app": "string",
+                          "kubevirt-manager.io/version": "string"
+                        }
+                      ],
+                      "name": "string",
+                      "namespace": "string"
+                    }
+                  ],
+                  "spec": [
+                    "object",
+                    {
+                      "ports": [
+                        "tuple",
+                        [
+                          [
+                            "object",
+                            {
+                              "port": "number",
+                              "protocol": "string",
+                              "targetPort": "number"
+                            }
+                          ]
+                        ]
+                      ],
+                      "selector": [
+                        "object",
+                        {
+                          "app": "string"
+                        }
+                      ],
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "object": {
+              "value": {
+                "apiVersion": "v1",
+                "kind": "Service",
+                "metadata": {
+                  "annotations": null,
+                  "creationTimestamp": null,
+                  "deletionGracePeriodSeconds": null,
+                  "deletionTimestamp": null,
+                  "finalizers": null,
+                  "generateName": null,
+                  "generation": null,
+                  "labels": {
+                    "app": "kubevirt-manager",
+                    "kubevirt-manager.io/version": "nightly"
+                  },
+                  "managedFields": null,
+                  "name": "kubevirt-manager",
+                  "namespace": "kubevirt-manager",
+                  "ownerReferences": null,
+                  "resourceVersion": null,
+                  "selfLink": null,
+                  "uid": null
+                },
+                "spec": {
+                  "allocateLoadBalancerNodePorts": null,
+                  "clusterIP": "10.43.197.31",
+                  "clusterIPs": [
+                    "10.43.197.31"
+                  ],
+                  "externalIPs": null,
+                  "externalName": null,
+                  "externalTrafficPolicy": null,
+                  "healthCheckNodePort": null,
+                  "internalTrafficPolicy": "Cluster",
+                  "ipFamilies": [
+                    "IPv4"
+                  ],
+                  "ipFamilyPolicy": "SingleStack",
+                  "loadBalancerClass": null,
+                  "loadBalancerIP": null,
+                  "loadBalancerSourceRanges": null,
+                  "ports": [
+                    {
+                      "appProtocol": null,
+                      "name": null,
+                      "nodePort": null,
+                      "port": 8080,
+                      "protocol": "TCP",
+                      "targetPort": "8080"
+                    }
+                  ],
+                  "publishNotReadyAddresses": null,
+                  "selector": {
+                    "app": "kubevirt-manager"
+                  },
+                  "sessionAffinity": "None",
+                  "sessionAffinityConfig": {
+                    "clientIP": {
+                      "timeoutSeconds": null
+                    }
+                  },
+                  "trafficDistribution": null,
+                  "type": "ClusterIP"
+                }
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "annotations": [
+                        "map",
+                        "string"
+                      ],
+                      "creationTimestamp": "string",
+                      "deletionGracePeriodSeconds": "number",
+                      "deletionTimestamp": "string",
+                      "finalizers": [
+                        "list",
+                        "string"
+                      ],
+                      "generateName": "string",
+                      "generation": "number",
+                      "labels": [
+                        "map",
+                        "string"
+                      ],
+                      "managedFields": [
+                        "tuple",
+                        [
+                          [
+                            "object",
+                            {
+                              "apiVersion": "string",
+                              "fieldsType": "string",
+                              "fieldsV1": "dynamic",
+                              "manager": "string",
+                              "operation": "string",
+                              "subresource": "string",
+                              "time": "string"
+                            }
+                          ]
+                        ]
+                      ],
+                      "name": "string",
+                      "namespace": "string",
+                      "ownerReferences": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "apiVersion": "string",
+                            "blockOwnerDeletion": "bool",
+                            "controller": "bool",
+                            "kind": "string",
+                            "name": "string",
+                            "uid": "string"
+                          }
+                        ]
+                      ],
+                      "resourceVersion": "string",
+                      "selfLink": "string",
+                      "uid": "string"
+                    }
+                  ],
+                  "spec": [
+                    "object",
+                    {
+                      "allocateLoadBalancerNodePorts": "bool",
+                      "clusterIP": "string",
+                      "clusterIPs": [
+                        "list",
+                        "string"
+                      ],
+                      "externalIPs": [
+                        "list",
+                        "string"
+                      ],
+                      "externalName": "string",
+                      "externalTrafficPolicy": "string",
+                      "healthCheckNodePort": "number",
+                      "internalTrafficPolicy": "string",
+                      "ipFamilies": [
+                        "list",
+                        "string"
+                      ],
+                      "ipFamilyPolicy": "string",
+                      "loadBalancerClass": "string",
+                      "loadBalancerIP": "string",
+                      "loadBalancerSourceRanges": [
+                        "list",
+                        "string"
+                      ],
+                      "ports": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "appProtocol": "string",
+                            "name": "string",
+                            "nodePort": "number",
+                            "port": "number",
+                            "protocol": "string",
+                            "targetPort": "string"
+                          }
+                        ]
+                      ],
+                      "publishNotReadyAddresses": "bool",
+                      "selector": [
+                        "map",
+                        "string"
+                      ],
+                      "sessionAffinity": "string",
+                      "sessionAffinityConfig": [
+                        "object",
+                        {
+                          "clientIP": [
+                            "object",
+                            {
+                              "timeoutSeconds": "number"
+                            }
+                          ]
+                        }
+                      ],
+                      "trafficDistribution": "string",
+                      "type": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "timeouts": [],
+            "wait": [],
+            "wait_for": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 1,
+          "identity": {
+            "api_version": "v1",
+            "kind": "Service",
+            "name": "kubevirt-manager",
+            "namespace": "kubevirt-manager"
+          },
+          "dependencies": [
+            "module.kubevirt_manager.kubernetes_namespace.kubevirt_manager"
+          ]
+        },
+        {
           "index_key": "ServiceAccount-kubevirt-manager",
           "schema_version": 1,
           "attributes": {
@@ -18512,14 +18803,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:54:36Z\"}]}",
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T08:46:31Z\"}]}",
                   "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "kubevirt-manager",
-                "resource_version": "12281096",
+                "resource_version": "12275796",
                 "uid": "81d5ccd1-c7c7-42d2-b1c7-c9fc2293cc9a"
               }
             ],
