@@ -54,6 +54,27 @@ module "kubevirt_manager" {
   }
 }
 
+module "cdi" {
+  source = "./terraform-modules/cdi"
+
+  providers = {
+    kubernetes = kubernetes
+  }
+}
+
+module "cdi_cr" {
+
+  source = "./terraform-modules/cdi-cr"
+
+  providers = {
+    kubernetes = kubernetes
+  }
+
+  depends_on = [
+    module.cdi
+  ]
+
+}
 #module "ollama" {
 #  source = "./terraform-modules/ollama"
 #

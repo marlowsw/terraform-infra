@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.14.8",
-  "serial": 414,
+  "serial": 387,
   "lineage": "acccfb74-40b4-1c27-fc04-f8886d2360a2",
   "outputs": {
     "argocd_helm_name": {
@@ -124,14 +124,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:32:13Z\"}]}",
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:09:17Z\"}]}",
                   "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "argocd",
-                "resource_version": "12305828",
+                "resource_version": "12290659",
                 "uid": "e58c2125-f890-4b2e-9264-07e66a70c2a0"
               }
             ],
@@ -26922,9 +26922,7 @@
                 "apiVersion": "apps/v1",
                 "kind": "Deployment",
                 "metadata": {
-                  "annotations": {
-                    "deployment.kubernetes.io/revision": "1"
-                  },
+                  "annotations": null,
                   "creationTimestamp": null,
                   "deletionGracePeriodSeconds": null,
                   "deletionTimestamp": null,
@@ -32297,15 +32295,12 @@
             "id": "cdi",
             "metadata": [
               {
-                "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:32:13Z\"}]}",
-                  "lifecycle.cattle.io/create.namespace-auth": "true"
-                },
+                "annotations": null,
                 "generate_name": "",
                 "generation": 0,
-                "labels": {},
+                "labels": null,
                 "name": "cdi",
-                "resource_version": "12305825",
+                "resource_version": "12301939",
                 "uid": "ba82b848-26d6-451f-a701-2ef2692c6095"
               }
             ],
@@ -32320,1311 +32315,6 @@
             "name": "cdi"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
-        }
-      ]
-    },
-    {
-      "module": "module.cdi_cr",
-      "mode": "managed",
-      "type": "kubernetes_manifest",
-      "name": "cdi_cr",
-      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
-      "instances": [
-        {
-          "schema_version": 1,
-          "attributes": {
-            "computed_fields": null,
-            "field_manager": [],
-            "manifest": {
-              "value": {
-                "apiVersion": "cdi.kubevirt.io/v1beta1",
-                "kind": "CDI",
-                "metadata": {
-                  "name": "cdi"
-                },
-                "spec": {
-                  "config": {
-                    "featureGates": [
-                      "HonorWaitForFirstConsumer"
-                    ]
-                  },
-                  "imagePullPolicy": "IfNotPresent",
-                  "infra": {
-                    "nodeSelector": {
-                      "kubernetes.io/os": "linux"
-                    },
-                    "tolerations": [
-                      {
-                        "key": "CriticalAddonsOnly",
-                        "operator": "Exists"
-                      }
-                    ]
-                  },
-                  "workload": {
-                    "nodeSelector": {
-                      "kubernetes.io/os": "linux"
-                    }
-                  }
-                }
-              },
-              "type": [
-                "object",
-                {
-                  "apiVersion": "string",
-                  "kind": "string",
-                  "metadata": [
-                    "object",
-                    {
-                      "name": "string"
-                    }
-                  ],
-                  "spec": [
-                    "object",
-                    {
-                      "config": [
-                        "object",
-                        {
-                          "featureGates": [
-                            "tuple",
-                            [
-                              "string"
-                            ]
-                          ]
-                        }
-                      ],
-                      "imagePullPolicy": "string",
-                      "infra": [
-                        "object",
-                        {
-                          "nodeSelector": [
-                            "object",
-                            {
-                              "kubernetes.io/os": "string"
-                            }
-                          ],
-                          "tolerations": [
-                            "tuple",
-                            [
-                              [
-                                "object",
-                                {
-                                  "key": "string",
-                                  "operator": "string"
-                                }
-                              ]
-                            ]
-                          ]
-                        }
-                      ],
-                      "workload": [
-                        "object",
-                        {
-                          "nodeSelector": [
-                            "object",
-                            {
-                              "kubernetes.io/os": "string"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            "object": {
-              "value": {
-                "apiVersion": "cdi.kubevirt.io/v1beta1",
-                "kind": "CDI",
-                "metadata": {
-                  "annotations": null,
-                  "creationTimestamp": null,
-                  "deletionGracePeriodSeconds": null,
-                  "deletionTimestamp": null,
-                  "finalizers": null,
-                  "generateName": null,
-                  "generation": null,
-                  "labels": null,
-                  "managedFields": null,
-                  "name": "cdi",
-                  "namespace": null,
-                  "ownerReferences": null,
-                  "resourceVersion": null,
-                  "selfLink": null,
-                  "uid": null
-                },
-                "spec": {
-                  "certConfig": {
-                    "ca": {
-                      "duration": null,
-                      "renewBefore": null
-                    },
-                    "client": {
-                      "duration": null,
-                      "renewBefore": null
-                    },
-                    "server": {
-                      "duration": null,
-                      "renewBefore": null
-                    }
-                  },
-                  "cloneStrategyOverride": null,
-                  "config": {
-                    "dataVolumeTTLSeconds": null,
-                    "featureGates": [
-                      "HonorWaitForFirstConsumer"
-                    ],
-                    "filesystemOverhead": {
-                      "global": null,
-                      "storageClass": null
-                    },
-                    "imagePullSecrets": null,
-                    "importProxy": {
-                      "HTTPProxy": null,
-                      "HTTPSProxy": null,
-                      "noProxy": null,
-                      "trustedCAProxy": null
-                    },
-                    "insecureRegistries": null,
-                    "logVerbosity": null,
-                    "podResourceRequirements": {
-                      "claims": null,
-                      "limits": null,
-                      "requests": null
-                    },
-                    "preallocation": null,
-                    "scratchSpaceStorageClass": null,
-                    "tlsSecurityProfile": {
-                      "custom": {
-                        "ciphers": null,
-                        "minTLSVersion": null
-                      },
-                      "intermediate": null,
-                      "modern": null,
-                      "old": null,
-                      "type": null
-                    },
-                    "uploadProxyURLOverride": null
-                  },
-                  "customizeComponents": {
-                    "flags": {
-                      "api": null,
-                      "controller": null,
-                      "uploadProxy": null
-                    },
-                    "patches": null
-                  },
-                  "imagePullPolicy": "IfNotPresent",
-                  "infra": {
-                    "affinity": {
-                      "nodeAffinity": {
-                        "preferredDuringSchedulingIgnoredDuringExecution": null,
-                        "requiredDuringSchedulingIgnoredDuringExecution": {
-                          "nodeSelectorTerms": null
-                        }
-                      },
-                      "podAffinity": {
-                        "preferredDuringSchedulingIgnoredDuringExecution": null,
-                        "requiredDuringSchedulingIgnoredDuringExecution": null
-                      },
-                      "podAntiAffinity": {
-                        "preferredDuringSchedulingIgnoredDuringExecution": null,
-                        "requiredDuringSchedulingIgnoredDuringExecution": null
-                      }
-                    },
-                    "apiServerReplicas": null,
-                    "deploymentReplicas": null,
-                    "nodeSelector": {
-                      "kubernetes.io/os": "linux"
-                    },
-                    "tolerations": [
-                      {
-                        "effect": null,
-                        "key": "CriticalAddonsOnly",
-                        "operator": "Exists",
-                        "tolerationSeconds": null,
-                        "value": null
-                      }
-                    ],
-                    "uploadProxyReplicas": null
-                  },
-                  "priorityClass": null,
-                  "uninstallStrategy": null,
-                  "workload": {
-                    "affinity": {
-                      "nodeAffinity": {
-                        "preferredDuringSchedulingIgnoredDuringExecution": null,
-                        "requiredDuringSchedulingIgnoredDuringExecution": {
-                          "nodeSelectorTerms": null
-                        }
-                      },
-                      "podAffinity": {
-                        "preferredDuringSchedulingIgnoredDuringExecution": null,
-                        "requiredDuringSchedulingIgnoredDuringExecution": null
-                      },
-                      "podAntiAffinity": {
-                        "preferredDuringSchedulingIgnoredDuringExecution": null,
-                        "requiredDuringSchedulingIgnoredDuringExecution": null
-                      }
-                    },
-                    "nodeSelector": {
-                      "kubernetes.io/os": "linux"
-                    },
-                    "tolerations": null
-                  }
-                }
-              },
-              "type": [
-                "object",
-                {
-                  "apiVersion": "string",
-                  "kind": "string",
-                  "metadata": [
-                    "object",
-                    {
-                      "annotations": [
-                        "map",
-                        "string"
-                      ],
-                      "creationTimestamp": "string",
-                      "deletionGracePeriodSeconds": "number",
-                      "deletionTimestamp": "string",
-                      "finalizers": [
-                        "list",
-                        "string"
-                      ],
-                      "generateName": "string",
-                      "generation": "number",
-                      "labels": [
-                        "map",
-                        "string"
-                      ],
-                      "managedFields": [
-                        "tuple",
-                        [
-                          [
-                            "object",
-                            {
-                              "apiVersion": "string",
-                              "fieldsType": "string",
-                              "fieldsV1": "dynamic",
-                              "manager": "string",
-                              "operation": "string",
-                              "subresource": "string",
-                              "time": "string"
-                            }
-                          ]
-                        ]
-                      ],
-                      "name": "string",
-                      "namespace": "string",
-                      "ownerReferences": [
-                        "list",
-                        [
-                          "object",
-                          {
-                            "apiVersion": "string",
-                            "blockOwnerDeletion": "bool",
-                            "controller": "bool",
-                            "kind": "string",
-                            "name": "string",
-                            "uid": "string"
-                          }
-                        ]
-                      ],
-                      "resourceVersion": "string",
-                      "selfLink": "string",
-                      "uid": "string"
-                    }
-                  ],
-                  "spec": [
-                    "object",
-                    {
-                      "certConfig": [
-                        "object",
-                        {
-                          "ca": [
-                            "object",
-                            {
-                              "duration": "string",
-                              "renewBefore": "string"
-                            }
-                          ],
-                          "client": [
-                            "object",
-                            {
-                              "duration": "string",
-                              "renewBefore": "string"
-                            }
-                          ],
-                          "server": [
-                            "object",
-                            {
-                              "duration": "string",
-                              "renewBefore": "string"
-                            }
-                          ]
-                        }
-                      ],
-                      "cloneStrategyOverride": "string",
-                      "config": [
-                        "object",
-                        {
-                          "dataVolumeTTLSeconds": "number",
-                          "featureGates": [
-                            "list",
-                            "string"
-                          ],
-                          "filesystemOverhead": [
-                            "object",
-                            {
-                              "global": "string",
-                              "storageClass": [
-                                "map",
-                                "string"
-                              ]
-                            }
-                          ],
-                          "imagePullSecrets": [
-                            "list",
-                            [
-                              "object",
-                              {
-                                "name": "string"
-                              }
-                            ]
-                          ],
-                          "importProxy": [
-                            "object",
-                            {
-                              "HTTPProxy": "string",
-                              "HTTPSProxy": "string",
-                              "noProxy": "string",
-                              "trustedCAProxy": "string"
-                            }
-                          ],
-                          "insecureRegistries": [
-                            "list",
-                            "string"
-                          ],
-                          "logVerbosity": "number",
-                          "podResourceRequirements": [
-                            "object",
-                            {
-                              "claims": [
-                                "list",
-                                [
-                                  "object",
-                                  {
-                                    "name": "string"
-                                  }
-                                ]
-                              ],
-                              "limits": [
-                                "map",
-                                "string"
-                              ],
-                              "requests": [
-                                "map",
-                                "string"
-                              ]
-                            }
-                          ],
-                          "preallocation": "bool",
-                          "scratchSpaceStorageClass": "string",
-                          "tlsSecurityProfile": [
-                            "object",
-                            {
-                              "custom": [
-                                "object",
-                                {
-                                  "ciphers": [
-                                    "list",
-                                    "string"
-                                  ],
-                                  "minTLSVersion": "string"
-                                }
-                              ],
-                              "intermediate": "dynamic",
-                              "modern": "dynamic",
-                              "old": "dynamic",
-                              "type": "string"
-                            }
-                          ],
-                          "uploadProxyURLOverride": "string"
-                        }
-                      ],
-                      "customizeComponents": [
-                        "object",
-                        {
-                          "flags": [
-                            "object",
-                            {
-                              "api": [
-                                "map",
-                                "string"
-                              ],
-                              "controller": [
-                                "map",
-                                "string"
-                              ],
-                              "uploadProxy": [
-                                "map",
-                                "string"
-                              ]
-                            }
-                          ],
-                          "patches": [
-                            "list",
-                            [
-                              "object",
-                              {
-                                "patch": "string",
-                                "resourceName": "string",
-                                "resourceType": "string",
-                                "type": "string"
-                              }
-                            ]
-                          ]
-                        }
-                      ],
-                      "imagePullPolicy": "string",
-                      "infra": [
-                        "object",
-                        {
-                          "affinity": [
-                            "object",
-                            {
-                              "nodeAffinity": [
-                                "object",
-                                {
-                                  "preferredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "preference": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchFields": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ]
-                                          }
-                                        ],
-                                        "weight": "number"
-                                      }
-                                    ]
-                                  ],
-                                  "requiredDuringSchedulingIgnoredDuringExecution": [
-                                    "object",
-                                    {
-                                      "nodeSelectorTerms": [
-                                        "list",
-                                        [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchFields": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ]
-                                          }
-                                        ]
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "podAffinity": [
-                                "object",
-                                {
-                                  "preferredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "podAffinityTerm": [
-                                          "object",
-                                          {
-                                            "labelSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "matchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "mismatchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "namespaceSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "namespaces": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "topologyKey": "string"
-                                          }
-                                        ],
-                                        "weight": "number"
-                                      }
-                                    ]
-                                  ],
-                                  "requiredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "labelSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "matchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "mismatchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "namespaceSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "namespaces": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "topologyKey": "string"
-                                      }
-                                    ]
-                                  ]
-                                }
-                              ],
-                              "podAntiAffinity": [
-                                "object",
-                                {
-                                  "preferredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "podAffinityTerm": [
-                                          "object",
-                                          {
-                                            "labelSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "matchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "mismatchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "namespaceSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "namespaces": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "topologyKey": "string"
-                                          }
-                                        ],
-                                        "weight": "number"
-                                      }
-                                    ]
-                                  ],
-                                  "requiredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "labelSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "matchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "mismatchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "namespaceSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "namespaces": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "topologyKey": "string"
-                                      }
-                                    ]
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "apiServerReplicas": "number",
-                          "deploymentReplicas": "number",
-                          "nodeSelector": [
-                            "map",
-                            "string"
-                          ],
-                          "tolerations": [
-                            "list",
-                            [
-                              "object",
-                              {
-                                "effect": "string",
-                                "key": "string",
-                                "operator": "string",
-                                "tolerationSeconds": "number",
-                                "value": "string"
-                              }
-                            ]
-                          ],
-                          "uploadProxyReplicas": "number"
-                        }
-                      ],
-                      "priorityClass": "string",
-                      "uninstallStrategy": "string",
-                      "workload": [
-                        "object",
-                        {
-                          "affinity": [
-                            "object",
-                            {
-                              "nodeAffinity": [
-                                "object",
-                                {
-                                  "preferredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "preference": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchFields": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ]
-                                          }
-                                        ],
-                                        "weight": "number"
-                                      }
-                                    ]
-                                  ],
-                                  "requiredDuringSchedulingIgnoredDuringExecution": [
-                                    "object",
-                                    {
-                                      "nodeSelectorTerms": [
-                                        "list",
-                                        [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchFields": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ]
-                                          }
-                                        ]
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "podAffinity": [
-                                "object",
-                                {
-                                  "preferredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "podAffinityTerm": [
-                                          "object",
-                                          {
-                                            "labelSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "matchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "mismatchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "namespaceSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "namespaces": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "topologyKey": "string"
-                                          }
-                                        ],
-                                        "weight": "number"
-                                      }
-                                    ]
-                                  ],
-                                  "requiredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "labelSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "matchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "mismatchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "namespaceSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "namespaces": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "topologyKey": "string"
-                                      }
-                                    ]
-                                  ]
-                                }
-                              ],
-                              "podAntiAffinity": [
-                                "object",
-                                {
-                                  "preferredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "podAffinityTerm": [
-                                          "object",
-                                          {
-                                            "labelSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "matchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "mismatchLabelKeys": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "namespaceSelector": [
-                                              "object",
-                                              {
-                                                "matchExpressions": [
-                                                  "list",
-                                                  [
-                                                    "object",
-                                                    {
-                                                      "key": "string",
-                                                      "operator": "string",
-                                                      "values": [
-                                                        "list",
-                                                        "string"
-                                                      ]
-                                                    }
-                                                  ]
-                                                ],
-                                                "matchLabels": [
-                                                  "map",
-                                                  "string"
-                                                ]
-                                              }
-                                            ],
-                                            "namespaces": [
-                                              "list",
-                                              "string"
-                                            ],
-                                            "topologyKey": "string"
-                                          }
-                                        ],
-                                        "weight": "number"
-                                      }
-                                    ]
-                                  ],
-                                  "requiredDuringSchedulingIgnoredDuringExecution": [
-                                    "list",
-                                    [
-                                      "object",
-                                      {
-                                        "labelSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "matchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "mismatchLabelKeys": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "namespaceSelector": [
-                                          "object",
-                                          {
-                                            "matchExpressions": [
-                                              "list",
-                                              [
-                                                "object",
-                                                {
-                                                  "key": "string",
-                                                  "operator": "string",
-                                                  "values": [
-                                                    "list",
-                                                    "string"
-                                                  ]
-                                                }
-                                              ]
-                                            ],
-                                            "matchLabels": [
-                                              "map",
-                                              "string"
-                                            ]
-                                          }
-                                        ],
-                                        "namespaces": [
-                                          "list",
-                                          "string"
-                                        ],
-                                        "topologyKey": "string"
-                                      }
-                                    ]
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "nodeSelector": [
-                            "map",
-                            "string"
-                          ],
-                          "tolerations": [
-                            "list",
-                            [
-                              "object",
-                              {
-                                "effect": "string",
-                                "key": "string",
-                                "operator": "string",
-                                "tolerationSeconds": "number",
-                                "value": "string"
-                              }
-                            ]
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            "timeouts": [],
-            "wait": [],
-            "wait_for": null
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 1,
-          "identity": {
-            "api_version": "cdi.kubevirt.io/v1beta1",
-            "kind": "CDI",
-            "name": "cdi",
-            "namespace": ""
-          },
-          "dependencies": [
-            "module.cdi.kubernetes_manifest.cdi_operator",
-            "module.cdi.kubernetes_namespace.cdi"
-          ]
         }
       ]
     },
@@ -33760,7 +32450,7 @@
                 },
                 "name": "goldpinger",
                 "namespace": "goldpinger",
-                "resource_version": "12305855",
+                "resource_version": "12290677",
                 "uid": "3fdee5e3-fbc1-46a9-a8b3-e068ae015f34"
               }
             ],
@@ -34791,14 +33481,13 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:32:13Z\"}]}",
-                  "lifecycle.cattle.io/create.namespace-auth": "true"
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:09:17Z\"}]}"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "goldpinger",
-                "resource_version": "12305829",
+                "resource_version": "12290651",
                 "uid": "804de374-3439-42a4-b91d-97da513930a0"
               }
             ],
@@ -34883,7 +33572,7 @@
                 },
                 "name": "goldpinger",
                 "namespace": "goldpinger",
-                "resource_version": "12305863",
+                "resource_version": "12290684",
                 "uid": "02945012-2c22-420f-81af-442e64c710be"
               }
             ],
@@ -35214,13 +33903,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:32:13Z\"}]}"
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:09:17Z\"}]}",
+                  "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "terraform-demo",
-                "resource_version": "12305831",
+                "resource_version": "12290665",
                 "uid": "7fb79506-dc9c-4407-8086-02d95fd81a81"
               }
             ],
@@ -35251,15 +33941,17 @@
             "id": "jellyfin/jellyfin",
             "metadata": [
               {
-                "annotations": {},
+                "annotations": {
+                  "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":30096,\"protocol\":\"TCP\",\"serviceName\":\"jellyfin:jellyfin\",\"allNodes\":true}]"
+                },
                 "generate_name": "",
-                "generation": 60,
+                "generation": 57,
                 "labels": {
                   "app": "jellyfin"
                 },
                 "name": "jellyfin",
                 "namespace": "jellyfin",
-                "resource_version": "12305854",
+                "resource_version": "12290681",
                 "uid": "9b326c4b-d04d-410b-b63c-a5e288631240"
               }
             ],
@@ -35498,14 +34190,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:32:13Z\"}]}",
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:09:17Z\"}]}",
                   "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "jellyfin",
-                "resource_version": "12305830",
+                "resource_version": "12290660",
                 "uid": "677f1003-c232-4ed1-a40c-61f55920b0c8"
               }
             ],
@@ -35694,7 +34386,7 @@
                 "labels": {},
                 "name": "jellyfin",
                 "namespace": "jellyfin",
-                "resource_version": "12305864",
+                "resource_version": "12290692",
                 "uid": "699294ef-512a-4e29-a81b-85041145f2b1"
               }
             ],
@@ -38088,13 +36780,14 @@
             "metadata": [
               {
                 "annotations": {
-                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:32:13Z\"}]}"
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:09:17Z\"}]}",
+                  "lifecycle.cattle.io/create.namespace-auth": "true"
                 },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "kubevirt",
-                "resource_version": "12305833",
+                "resource_version": "12290662",
                 "uid": "cfec1af0-6821-4102-b753-30dee23713a7"
               }
             ],
@@ -43381,8 +42074,7 @@
                 "kind": "Deployment",
                 "metadata": {
                   "annotations": {
-                    "deployment.kubernetes.io/revision": "1",
-                    "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":30100,\"protocol\":\"TCP\",\"serviceName\":\"kubevirt-manager:kubevirt-manager\",\"allNodes\":true}]"
+                    "deployment.kubernetes.io/revision": "1"
                   },
                   "creationTimestamp": null,
                   "deletionGracePeriodSeconds": null,
@@ -51883,9 +50575,7 @@
                 "apiVersion": "v1",
                 "kind": "Service",
                 "metadata": {
-                  "annotations": {
-                    "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"2601:840:4001:c780:be24:11ff:fe51:e202\"],\"port\":30100,\"protocol\":\"TCP\",\"serviceName\":\"kubevirt-manager:kubevirt-manager\",\"allNodes\":true}]"
-                  },
+                  "annotations": null,
                   "creationTimestamp": null,
                   "deletionGracePeriodSeconds": null,
                   "deletionTimestamp": null,
@@ -52282,12 +50972,14 @@
             "id": "kubevirt-manager",
             "metadata": [
               {
-                "annotations": {},
+                "annotations": {
+                  "cattle.io/status": "{\"Conditions\":[{\"Type\":\"ResourceQuotaInit\",\"Status\":\"True\",\"Message\":\"\",\"LastUpdateTime\":\"2026-08-02T09:09:17Z\"}]}"
+                },
                 "generate_name": "",
                 "generation": 0,
                 "labels": {},
                 "name": "kubevirt-manager",
-                "resource_version": "12305815",
+                "resource_version": "12290652",
                 "uid": "81d5ccd1-c7c7-42d2-b1c7-c9fc2293cc9a"
               }
             ],
