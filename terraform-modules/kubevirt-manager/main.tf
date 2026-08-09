@@ -1,3 +1,10 @@
+terraform {
+  required_providers {
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+  }
+}
 locals {
   kubevirt_manager_documents = [
     for doc in split("\n---", file("${path.module}/kubevirt-manager.yaml")) :

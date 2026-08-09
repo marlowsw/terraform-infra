@@ -1,3 +1,14 @@
+terraform {
+  required_providers {
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+
+    helm = {
+      source = "hashicorp/helm"
+    }
+  }
+}
 resource "kubernetes_namespace" "argocd" {
   metadata {
     name = var.namespace

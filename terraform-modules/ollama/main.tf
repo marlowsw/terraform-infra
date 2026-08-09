@@ -1,3 +1,10 @@
+terraform {
+  required_providers {
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+  }
+}
 resource "kubernetes_namespace" "ollama" {
   metadata {
     name = var.namespace

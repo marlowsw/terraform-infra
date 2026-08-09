@@ -1,0 +1,52 @@
+- Proxmox:
+    - NAS1:
+        href: https://10.0.0.253:8006/
+        description: Proxmox VE
+        icon: proxmox.png
+
+    - Mini1:
+        href: https://10.0.0.121:8006/
+        description: Proxmox VE
+        icon: proxmox.png
+
+    - Mini2:
+        href: https://10.0.0.25:8006/
+        description: Proxmox VE
+        icon: proxmox.png
+
+- Kubernetes:
+    - Rancher:
+        href: https://rancher-control1/dashboard/home
+        description: Kubernetes management
+        icon: rancher.png
+
+    - Grafana:
+        href: https://rancher-control1/api/v1/namespaces/cattle-monitoring-system/services/http:rancher-monitoring-grafana:80/proxy/d/rancher-home-1/home?orgId=1&from=now-1h&to=now&timezone=browser&var-datasource=prometheus
+        description: Kubernetes monitoring
+        icon: grafana.png
+
+    - Longhorn:
+        href: https://rancher-control1/k8s/clusters/local/api/v1/namespaces/longhorn-system/services/http:longhorn-frontend:80/proxy/#/dashboard
+        description: Kubernetes storage
+        icon: longhorn.png
+
+    - Goldpinger:
+        href: http://10.0.0.222:31078/
+        description: Kubernetes node status
+        icon: https://raw.githubusercontent.com/bloomberg/goldpinger/master/static/favicon.png
+
+    - KubeVirt:
+        href: http://10.0.0.204:30100/
+        description: Virtual machine management
+        icon: kubernetes.png
+
+- Storage:
+    - pfSense:
+        href: http://10.0.0.32/
+        description: Network firewall
+        icon: pfsense.png
+
+    - TerraMaster NAS:
+        href: https://10.0.0.9:5443/tos/#/
+        description: NAS management
+        icon: terramaster.png

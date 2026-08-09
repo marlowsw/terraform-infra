@@ -1,3 +1,10 @@
+terraform {
+  required_providers {
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+  }
+}
 # ~/terraform/terraform-modules/infra/main.tf
 
 variable "namespace" {
