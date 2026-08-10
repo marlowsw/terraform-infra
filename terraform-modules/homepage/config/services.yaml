@@ -25,11 +25,6 @@
         description: Kubernetes monitoring
         icon: grafana.png
 
-    - Longhorn:
-        href: https://rancher-control1/k8s/clusters/local/api/v1/namespaces/longhorn-system/services/http:longhorn-frontend:80/proxy/#/dashboard
-        description: Kubernetes storage
-        icon: longhorn.png
-
     - Goldpinger:
         href: http://10.0.0.222:31078/
         description: Kubernetes node status
@@ -45,6 +40,12 @@
         href: https://10.0.0.9:5443/tos/#/
         description: NAS management
         icon: terramaster.png
+         
+    - Longhorn:
+        href: https://rancher-control1/k8s/clusters/local/api/v1/namespaces/longhorn-system/services/http:longhorn-frontend:80/proxy/#/dashboard
+        description: Kubernetes storage
+        icon: longhorn.png
+      
 
 - Networking:
     - pfSense:
