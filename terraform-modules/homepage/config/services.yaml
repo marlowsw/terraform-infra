@@ -41,12 +41,18 @@
         icon: kubernetes.png
 
 - Storage:
+    - TerraMaster NAS:
+        href: https://10.0.0.9:5443/tos/#/
+        description: NAS management
+        icon: terramaster.png
+
+- Networking:
     - pfSense:
         href: http://10.0.0.32/
         description: Network firewall
         icon: pfsense.png
 
-    - TerraMaster NAS:
-        href: https://10.0.0.9:5443/tos/#/
-        description: NAS management
-        icon: terramaster.png
+    - Bind9 DNS:
+        href: https://10.0.0.208:10000/
+        description: DNS Server
+        icon: dns.png      
