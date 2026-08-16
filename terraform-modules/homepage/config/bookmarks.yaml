@@ -6,6 +6,10 @@
     - Kubernetes Docs:
         - abbr: K8S
           href: https://kubernetes.io/docs/home/
+      
+    - Dell-server idrac 6:
+        - abbr: iDRAC 6
+          href: http://10.0.0.37:5800/      
 
 - Personal:
     - YouTube:
