@@ -14,7 +14,7 @@ resource "helm_release" "homepage" {
       env = [
         {
           name  = "HOMEPAGE_ALLOWED_HOSTS"
-          value = "rancher-worker2:30176"
+          value = "*"
         }
       ]
 
