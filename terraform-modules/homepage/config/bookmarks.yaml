@@ -19,3 +19,33 @@
     - ChatGPT:
         - abbr: AI
           href: https://chatgpt.com
+
+- Kubernetes Resources:
+    - RKE2 Docs:
+        - abbr: RKE2
+          href: https://docs.rke2.io/
+
+    - OpenShift Docs:
+        - abbr: OCP
+          href: https://docs.redhat.com/en/documentation/openshift_container_platform/4.22
+
+    - k3d:
+        - abbr: K3D
+          href: https://k3d.io/v5.8.0/usage/commands/k3d/#see-also
+
+    - Squid Air Gap Guide:
+        - abbr: SQD
+          href: https://pandeybk.medium.com/setting-up-a-local-proxy-server-with-squid-for-openshift-air-gap-simulation-c4fe05466293
+
+- Homelab Communities:
+    - Reddit Homelab:
+        - abbr: HL
+          href: https://www.reddit.com/r/homelab/
+
+    - Reddit MiniLab:
+        - abbr: ML
+          href: https://www.reddit.com/r/minilab/
+
+    - Homelab Sales:
+        - abbr: SALE
+          href: https://www.reddit.com/r/homelabsales/

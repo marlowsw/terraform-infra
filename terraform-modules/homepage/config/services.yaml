@@ -57,3 +57,41 @@
         href: https://10.0.0.208:10000/
         description: DNS Server
         icon: dns.png      
+
+- Applications:
+    - ArgoCD:
+        href: https://rancher-control3:30080/applications
+        description: GitOps application management
+        icon: argo-cd.png
+
+    - Jellyfin:
+        href: http://rancher-control1:30096/web/
+        description: Media streaming
+        icon: jellyfin.png
+
+    - Homepage:
+        href: http://rancher-control1:30176/
+        description: Homelab dashboard
+        icon: homepage.png
+
+- Container Registries:
+    - Primary Registry:
+        href: https://10.0.0.125:8443/repository/
+        description: Homelab container registry
+        icon: docker.png
+
+    - OpenShift Registry:
+        href: https://10.0.0.111:8443/repository/openshift/release?tab=tags
+        description: OpenShift image mirror
+        icon: openshift.png
+
+- OpenShift:
+    - OpenShift Homelab:
+        href: https://oauth-openshift.apps.ocp.homelab.home/
+        description: OpenShift cluster login
+        icon: openshift.png
+
+    - Red Hat Hybrid Cloud:
+        href: https://console.redhat.com/openshift/clusters/list
+        description: OpenShift cluster management
+        icon: redhat.png
