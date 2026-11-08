@@ -13,6 +13,11 @@ variable "namespace" {
 }
 
 resource "kubernetes_namespace" "example" {
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["lifecycle.cattle.io/create.namespace-auth"]
+    ]
+  }
   metadata {
     name = var.namespace
   }

@@ -102,6 +102,12 @@ resource "kubernetes_persistent_volume_claim_v1" "jellyfin" {
 }
 
 resource "kubernetes_deployment_v1" "jellyfin" {
+  wait_for_rollout = false
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["field.cattle.io/publicEndpoints"]
+    ]
+  }
   metadata {
     name      = "jellyfin"
     namespace = kubernetes_namespace_v1.jellyfin.metadata[0].name
@@ -168,15 +174,13 @@ resource "kubernetes_deployment_v1" "jellyfin" {
 
           resources {
             requests = {
-              cpu              = "250m"
-              memory           = "512Mi"
-              "nvidia.com/gpu" = "1"
+              cpu    = "250m"
+              memory = "512Mi"
             }
 
             limits = {
-              cpu              = "4"
-              memory           = "16Gi"
-              "nvidia.com/gpu" = "1"
+              cpu    = "4"
+              memory = "16Gi"
             }
           }
         }

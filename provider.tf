@@ -18,6 +18,16 @@ terraform {
 
 provider "kubernetes" {
   config_path = "/home/smarz/terraform/terraform-infra/local.yaml"
+
+  ignore_annotations = [
+    "^cattle\\.io/status$",
+    "^lifecycle\\.cattle\\.io/create\\.namespace-auth$",
+    "^field\\.cattle\\.io/publicEndpoints$",
+  ]
+
+  ignore_labels = [
+    "^openshift\\.io/cluster-monitoring$",
+  ]
 }
 
 provider "helm" {

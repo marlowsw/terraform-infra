@@ -1,0 +1,25 @@
+
+# Terraform local state and backups
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfplan.*
+*.tfstate.backup
+
+# Terraform generated files
+.terraform/
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local backups
+*.tf.bak
+*.yaml.bak
+
+# Local credentials
+local.yaml
+*.tfvars
+*.tfvars.json

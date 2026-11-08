@@ -23,7 +23,7 @@ module "jellyfin" {
   nfs_share    = "/Volume2/Labdata/jellyfin"
   storage_size = "1Ti"
 
-  gpu_node = "rancher-gpu1"
+  gpu_node = "rancher-control1"
 
   providers = {
     kubernetes = kubernetes
@@ -88,6 +88,6 @@ module "cdi_cr" {
 #  ollama_storage_size    = "100Gi"
 #  openwebui_storage_size = "20Gi"
 #
-#  gpu_node = "rancher-gpu1"
+#  gpu_node = "rancher-control1"
 #}
 

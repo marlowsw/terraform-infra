@@ -17,7 +17,8 @@ locals {
     for doc in local.cdi_documents :
     "${yamldecode(doc).kind}-${try(yamldecode(doc).metadata.name, uuid())}" => yamldecode(doc)
 
-    if yamldecode(doc).kind != "Namespace"
+    if yamldecode(doc).kind != "Namespace" &&
+    yamldecode(doc).kind != "CustomResourceDefinition"
   }
 }
 

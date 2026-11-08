@@ -18,6 +18,13 @@ locals {
 
 resource "kubernetes_namespace" "kubevirt" {
 
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["lifecycle.cattle.io/create.namespace-auth"],
+      metadata[0].labels["openshift.io/cluster-monitoring"]
+    ]
+  }
+
   metadata {
     name = "kubevirt"
   }

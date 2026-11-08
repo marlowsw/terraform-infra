@@ -201,6 +201,12 @@ resource "kubernetes_daemon_set_v1" "goldpinger" {
 
 resource "kubernetes_service_v1" "goldpinger" {
 
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["field.cattle.io/publicEndpoints"]
+    ]
+  }
+
   metadata {
     name      = "goldpinger"
     namespace = kubernetes_namespace_v1.goldpinger.metadata[0].name
