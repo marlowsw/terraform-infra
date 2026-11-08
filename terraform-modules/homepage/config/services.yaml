@@ -85,11 +85,11 @@
         description: OpenShift image mirror
         icon: openshift.png
 
-- OpenShift:
-    - OpenShift Homelab:
-        href: https://oauth-openshift.apps.ocp.homelab.home/
-        description: OpenShift cluster login
-        icon: openshift.png
+- OKD:
+    - OKD Homelab:
+        href: https://console-openshift-console.apps.ocp.homelab.home/
+        description: OKD cluster management
+        icon: https://github.com/okd-project.png
 
     - Red Hat Hybrid Cloud:
         href: https://console.redhat.com/openshift/clusters/list
