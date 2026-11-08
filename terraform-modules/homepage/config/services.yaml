@@ -87,7 +87,7 @@
 
 - OKD:
     - OKD Homelab:
-        href: https://console-openshift-console.apps.ocp.homelab.home/
+        href: https://console-openshift-console.apps.okd.homelab.home/
         description: OKD cluster management
         icon: https://github.com/okd-project.png
 
